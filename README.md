@@ -7,7 +7,7 @@
 </ul>
 
 <h2>How to Run Program</h2>
-
+<p>Run the following commands in Terminal or Command Prompt.</p>
 <h3>1. Clone the Repository</h3>
 <pre><code>git clone git remote add origin https://github.com/rebanto/tsa-webmaster-24.git
 cd tsa-webmaster-24</code></pre>
