@@ -6,7 +6,7 @@ const App = () => {
 
     useEffect(() => {
         // fetch data from the Flask API
-        axios.get('http://127.0.0.1:5000/api')
+        axios.get('/api')
             .then(response => {
                 setMessage(response.data.message);
             })
