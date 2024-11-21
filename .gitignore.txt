@@ -1,0 +1,7 @@
+# Node modules for React
+client/node_modules/
+# Python virtual environment
+server/venv/
+# Bytecode and caches
+__pycache__/
+*.pyc
