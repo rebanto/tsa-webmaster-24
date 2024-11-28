@@ -1,26 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Menu from './pages/Menu';
+import Contact from './pages/Contact';
+import Order from './pages/Order';
+import AdminPage from './pages/AdminPage';
 
-const App = () => {
-    const [message, setMessage] = useState('');
+function App() {
+  return (
+    <div className="App">
+      <h1>My Restaurant Website</h1>
+      <nav>
+        <Link to="/">Home</Link> | 
+        <Link to="/about">About</Link> | 
+        <Link to="/menu">Menu</Link> | 
+        <Link to="/contact">Contact</Link> |
+        <Link to="/order">Order</Link>
+      </nav>
 
-    useEffect(() => {
-        // fetch data from the Flask API
-        axios.get('/api')
-            .then(response => {
-                setMessage(response.data.message);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
-
-    return (
-        <div>
-            <h1>React & Flask Integration</h1>
-            <p>Message from Flask: {message}</p>
-        </div>
-    );
-};
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </div>
+  );
+}
 
 export default App;
