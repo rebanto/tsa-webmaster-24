@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Order() {
   const [orderDetails, setOrderDetails] = useState({
-    name: '',
-    email: '',
-    item: '',
+    name: "",
+    email: "",
+    item: "",
     quantity: 1,
   });
 
@@ -15,15 +15,19 @@ function Order() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Order placed successfully!');
-    console.log(orderDetails);
-    
-    setOrderDetails({
-      name: '',
-      email: '',
-      item: '',
-      quantity: ''
-    });
+    fetch("http://localhost:5000/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderDetails), // send order as JSON string
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(`${data.message}`); // print message returned from flask server
+        setOrderDetails({ name: "", email: "", item: "", quantity: 1 });
+      })
+      .catch((error) => console.error("Error:", error));
   };
 
   return (
@@ -31,7 +35,7 @@ function Order() {
       <h2>Order Your Meal</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label>Name: </label>
           <input
             type="text"
             name="name"
@@ -41,7 +45,7 @@ function Order() {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label>Email: </label>
           <input
             type="email"
             name="email"
@@ -51,7 +55,7 @@ function Order() {
           />
         </div>
         <div>
-          <label>Item:</label>
+          <label>Item: </label>
           <select
             name="item"
             value={orderDetails.item}
@@ -66,7 +70,7 @@ function Order() {
           </select>
         </div>
         <div>
-          <label>Quantity:</label>
+          <label>Quantity: </label>
           <input
             type="number"
             name="quantity"
