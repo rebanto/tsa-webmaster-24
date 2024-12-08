@@ -1,0 +1,54 @@
+.order-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F4F1DE;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .order-page h2 {
+    text-align: center;
+    color: #E07A5F;
+    margin-bottom: 20px;
+  }
+  
+  .order-page form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3D405B;
+    font-weight: bold;
+  }
+  
+  .order-page form input,
+  .order-page form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #81B29A;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .order-page form input:focus,
+  .order-page form select:focus {
+    outline: none;
+    border-color: #E07A5F;
+    box-shadow: 0 0 5px rgba(224, 122, 95, 0.5);
+  }
+  
+  .order-page form button {
+    width: 100%;
+    background-color: #E07A5F;
+    color: #F4F1DE;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-page form button:hover {
+    background-color: #81B29A;
+  }

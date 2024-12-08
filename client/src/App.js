@@ -6,27 +6,37 @@ import Menu from './pages/Menu';
 import Contact from './pages/Contact';
 import Order from './pages/Order';
 import AdminPage from './pages/AdminPage';
+import './index.css'; // Ensure styles are applied
 
 function App() {
   return (
     <div className="App">
-      <h1>My Restaurant Website</h1>
-      <nav>
-        <Link to="/">Home</Link> | 
-        <Link to="/about">About</Link> | 
-        <Link to="/menu">Menu</Link> | 
-        <Link to="/contact">Contact</Link> |
-        <Link to="/order">Order</Link>
+      <header>
+        <h1>Vegan Restaurant or Something</h1>
+        <p>Put some description here</p>
+      </header>
+
+      <nav className="navbar">
+        <div className="container">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/order">Order</Link>
+          <Link to="/admin">Admin</Link>
+        </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Routes>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </main>
     </div>
   );
 }

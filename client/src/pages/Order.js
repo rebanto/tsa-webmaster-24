@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Order.css';
 
 function Order() {
   const [orderDetails, setOrderDetails] = useState({
@@ -27,7 +28,7 @@ function Order() {
         alert(`${data.message}`); // print message returned from flask server
         setOrderDetails({ name: "", email: "", item: "", quantity: 1 });
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error("error:", error));
   };
 
   return (
