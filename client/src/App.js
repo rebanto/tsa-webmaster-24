@@ -6,7 +6,7 @@ import Menu from './pages/Menu';
 import Contact from './pages/Contact';
 import Order from './pages/Order';
 import AdminPage from './pages/AdminPage';
-import './index.css'; // Ensure styles are applied
+import './index.css';
 
 function App() {
   return (
