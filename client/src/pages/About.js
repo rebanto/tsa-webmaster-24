@@ -6,31 +6,31 @@ const timelineSteps = [
     id: "step1",
     title: "Sourcing",
     image: "/images/sourcing.jpeg",
-    description: "We source fresh, organic ingredients from trusted local farms.",
+    description: "Organic, fresh ingredients.",
   },
   {
     id: "step2",
     title: "Cleaning and Packaging",
     image: "/images/cleaning_packaging.jpeg",
-    description: "Ingredients are carefully cleaned and packaged to maintain freshness.",
+    description: "Carefully Packaged.",
   },
   {
     id: "step3",
     title: "Distribution",
     image: "/images/cleaning_packaging.jpeg",
-    description: "Our products are distributed through eco-friendly means.",
+    description: "Distributed through eco-friendly means.",
   },
   {
     id: "step4",
     title: "Retail",
     image: "/images/cleaning_packaging.jpeg",
-    description: "Available at select retail locations for your convenience.",
+    description: "Available at select retail location.",
   },
   {
     id: "step5",
     title: "Preparation",
     image: "/images/cleaning_packaging.jpeg",
-    description: "Our chefs use innovative techniques to prepare healthy and delicious meals.",
+    description: "Innovative techniques to prepare healthy and delicious meals.",
   },
 ];
 
