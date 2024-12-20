@@ -1,59 +1,69 @@
 .admin-page {
-    padding: 20px;
-    background-color: #F4F1DE;
-    max-width: 1000px;
-    margin: 50px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-  
-  .admin-page h1 {
-    text-align: center;
-    color: #3D405B;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-  }
-  
-  .admin-page h2 {
-    color: #E07A5F;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table th,
-  table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #81B29A;
-  }
-  
-  table th {
-    background-color: #E07A5F;
-    color: #F4F1DE;
-    font-weight: bold;
-  }
-  
-  table tr:nth-child(even) {
-    background-color: #F4F1DE;
-  }
-  
-  table tr:nth-child(odd) {
-    background-color: #fff;
-  }
-  
-  table tr:hover {
-    background-color: #81B29A;
-    color: #F4F1DE;
-  }
+  padding: 20px;
+  background-color: #F4F1DE;
+  max-width: 1000px;
+  margin: 50px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
 
-  table input[type="checkbox"] {
-    transform: scale(1.5); /* Make the checkbox a little bigger */
-    cursor: pointer;
-  }
+.admin-page h1 {
+  text-align: center;
+  color: #3D405B;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.admin-page h2 {
+  color: #E07A5F;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #81B29A;
+}
+
+table th {
+  background-color: #E07A5F;
+  color: #F4F1DE;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #F4F1DE;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table tr:hover {
+  background-color: #81B29A;
+  color: #F4F1DE;
+}
+
+table input[type="checkbox"] {
+  transform: scale(1.5); /* Make the checkbox a little bigger */
+  cursor: pointer;
+}
+
+table ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+table li {
+  font-size: 1rem;
+  color: #3D405B;
+}

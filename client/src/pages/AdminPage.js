@@ -7,7 +7,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/orders");
+        const response = await fetch("http://localhost:5000/api/admin/orders");
         const data = await response.json();
         setOrders(data);
       } catch (error) {
@@ -18,10 +18,22 @@ const AdminPage = () => {
     fetchOrders();
   }, []);
 
-  const handleCheckboxChange = (index) => {
-    const updatedOrders = [...orders];
-    updatedOrders[index].completed = !updatedOrders[index].completed;
-    setOrders(updatedOrders);
+  const handleCheckboxChange = async (index) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/orders/${index}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        setOrders(orders.filter((_, i) => i !== index));
+      } else {
+        console.error("Failed to delete order");
+      }
+    } catch (error) {
+      console.error("error:", error);
+    }
   };
 
   return (
@@ -33,28 +45,36 @@ const AdminPage = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Item</th>
+            <th>Items</th>
             <th>Quantity</th>
             <th>Completed</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            !order.completed && (
-              <tr key={index}>
-                <td>{order.name}</td>
-                <td>{order.email}</td>
-                <td>{order.item}</td>
-                <td>{order.quantity}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={order.completed}
-                    onChange={() => handleCheckboxChange(index)}
-                  />
-                </td>
-              </tr>
-            )
+            <tr key={index}>
+              <td>{order.name}</td>
+              <td>{order.email}</td>
+              <td>
+                {order.items ? (
+                  <ul>
+                    {order.items.map((item, idx) => (
+                      <li key={idx}>{item.name} - ${item.price}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  order.item
+                )}
+              </td>
+              <td>{order.quantity || order.items.length}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={order.completed}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
