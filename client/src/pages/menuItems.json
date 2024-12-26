@@ -1,0 +1,96 @@
+{
+  "specialtyDrinks": [
+    {
+      "id": 1,
+      "name": "Cucumber Mint Lemonade",
+      "description": "Freshly Squeezed Lemonade with cucumber slices, mint leaves, etc.",
+      "price": 3.99,
+      "image": "images/cuc_mint_lem.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Rose Cardamom Hot Chocolate",
+      "description": "Rich hot chocolate infused with rosewater and cardamom, topped with whipped cream",
+      "price": 3.99,
+      "image": "images/hot_chocolate.jpg"
+    }
+  ],
+  "soupsSalads": [
+    {
+      "id": 3,
+      "name": "Citrusy Chickpea Salad",
+      "description": "Flavorful combination of spiced chickpea, turmeric rice, roasted sweet potatoes, and coconut yogurt drizzle",
+      "price": 10.99,
+      "image": "images/chickpea.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Thai Coconut Curry Soup",
+      "description": "Spicy and Creamy with coconut milk, lemongrass, tofu, mushrooms, and lime",
+      "price": 12.99,
+      "image": "images/thai.jpg"
+    }
+  ],
+  "appetizers": [
+    {
+      "id": 5,
+      "name": "Mac N' Cheese Bites",
+      "description": "Made with sharp cheddar and deep-fried for a crispy exterior",
+      "price": 5.99,
+      "image": "images/mac.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Red Pepper Bruschetta",
+      "description": "A platter featuring roasted red pepper feta and tomato basil topped with lemon zest",
+      "price": 6.99,
+      "image": "images/bruschetta.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Asian Rice Wraps",
+      "description": "Sauteed vegetables, tofu, sesame-ginger sauce, and butter lettuce wrapped in Asian rice wrap",
+      "price": 6.99,
+      "image": "images/rice.jpg"
+    }
+  ],
+  "entrees": [
+    {
+      "id": 9,
+      "name": "Wild Mushroom Risotto",
+      "description": "Creamy Arborio rice cooked with medley of wild mushrooms, white wine, Parmesan, and fresh thyme",
+      "price": 13.99,
+      "image": "images/mushroom.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Mediterranean Street Bowl",
+      "description": "Quinoa or farro topped with roasted vegetables chickpeas tzatziki, and a drizzle of tahini dressing",
+      "price": 16.99,
+      "image": "images/med_street.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Paneer Tikka Pizza",
+      "description": "Authentic Naan Bread topped with creamy cheese sauce, paneer cubes, and tikka seasoned olive oil",
+      "price": 14.99,
+      "image": "images/paneer.jpg"
+    }
+  ],
+  "desserts": [
+    {
+      "id": 12,
+      "name": "Rosewater Panna Cotta w/ Pistachio Crumble",
+      "description": "Silky panna cotta infused with rosewater, topped with vibrant pistachio crumbles and pomegranate syrup",
+      "price": 14.99,
+      "image": "images/panna.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Earl Grey Crème Brûlée",
+      "description": "Creamy Custard infused with earl grey tea, topped with a crisp caramelized sugar crust",
+      "price": 8.99,
+      "image": "images/earl.jpg"
+    }
+  ]
+}

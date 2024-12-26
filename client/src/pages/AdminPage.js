@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './AdminPage.css';
+import "./AdminPage.css";
 
 const AdminPage = () => {
   const [orders, setOrders] = useState([]);
@@ -18,14 +18,30 @@ const AdminPage = () => {
     fetchOrders();
   }, []);
 
+  const groupItems = (items) => {
+    const grouped = items.reduce((acc, item) => {
+      const existingItem = acc.find((i) => i.name === item.name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        acc.push({ ...item, quantity: 1 });
+      }
+      return acc;
+    }, []);
+    return grouped;
+  };
+
   const handleCheckboxChange = async (index) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${index}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/orders/${index}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (response.ok) {
         setOrders(orders.filter((_, i) => i !== index));
       } else {
@@ -58,8 +74,11 @@ const AdminPage = () => {
               <td>
                 {order.items ? (
                   <ul>
-                    {order.items.map((item, idx) => (
-                      <li key={idx}>{item.name} - ${item.price}</li>
+                    {groupItems(order.items).map((item, idx) => (
+                      <li key={idx}>
+                        {item.name} - ${item.price}{" "}
+                        {item.quantity > 1 && `x${item.quantity}`}
+                      </li>
                     ))}
                   </ul>
                 ) : (
