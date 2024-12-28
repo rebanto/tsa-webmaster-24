@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body,
 html {
   font-family: "Arial", sans-serif;
@@ -12,6 +16,8 @@ html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 header {
@@ -87,3 +93,4 @@ section {
 .navbar a:hover {
   color: #81b29a;
 }
+
