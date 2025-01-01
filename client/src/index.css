@@ -24,17 +24,14 @@ header {
   background-color: #e07a5f;
   color: #f4f1de;
   text-align: center;
-  padding: 40px 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.2rem;
 }
 
 main {
@@ -44,10 +41,11 @@ main {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
+
   padding: 0 20px;
 }
-
+ 
 button {
   background-color: #81b29a;
   color: #f4f1de;
@@ -74,23 +72,48 @@ section {
 .navbar {
   background-color: #e07a5f;
   color: #f4f1de;
-  padding: 15px 30px;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.navbar .logo span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-right: 2%;
 }
 
 .navbar a {
   color: #f4f1de;
   text-decoration: none;
   font-weight: bold;
-  margin: 0 15px;
+  font-size: 1rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .navbar a:hover {
   color: #81b29a;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
-

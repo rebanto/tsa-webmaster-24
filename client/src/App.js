@@ -1,23 +1,22 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Menu from './pages/Menu';
-import Contact from './pages/Contact';
-import Order from './pages/Order';
-import AdminPage from './pages/AdminPage';
-import './index.css';
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Menu from "./pages/Menu";
+import Contact from "./pages/Contact";
+import Order from "./pages/Order";
+import AdminPage from "./pages/AdminPage";
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Vegan Restaurant or Something</h1>
-        <p>Put some description here</p>
-      </header>
-
       <nav className="navbar">
-        <div className="container">
+        <div className="logo">
+          <img src="images/placeholder.jpg" alt="Logo" />
+          <span>Vegan Restaurant or Something</span>
+        </div>
+        <div className="links">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/menu">Menu</Link>

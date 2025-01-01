@@ -21,8 +21,8 @@ npm start</code></pre>
 
 <h3>3. Set Up the Back-end</h3>
 <pre><code>cd server
-python -m venv venv       <!-- Optional -->
-source venv/bin/activate  <!-- On Windows: venv\Scripts\activate -->
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 python app.py</code></pre>
 <p>The back-end will be available at <strong>http://127.0.0.1:5000/api</strong>.</p>
