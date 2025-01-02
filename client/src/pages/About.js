@@ -5,35 +5,35 @@ const timelineSteps = [
   {
     id: "step1",
     title: "Sourcing",
-    image: "/images/sourcing.jpeg",
+    image: "/images/Sourcing.jpg",
     description: "Organic, fresh ingredients.",
     modal_content: "Insert more detailed modal content here.",
   },
   {
     id: "step2",
     title: "Cleaning and Packaging",
-    image: "/images/cleaning_packaging.jpeg",
+    image: "/images/Cleaning.jpg",
     description: "Carefully Packaged.",
     modal_content: "Insert more detailed modal content here.",
   },
   {
     id: "step3",
     title: "Distribution",
-    image: "/images/sourcing.jpeg",
+    image: "/images/Distribution.jpg",
     description: "Eco-friendly means.",
     modal_content: "Insert more detailed modal content here.",
   },
   {
     id: "step4",
     title: "Retail",
-    image: "/images/cleaning_packaging.jpeg",
+    image: "/images/Retail.jpg",
     description: "Available at select locations.",
     modal_content: "Insert more detailed modal content here.",
   },
   {
     id: "step5",
     title: "Preparation",
-    image: "/images/sourcing.jpeg",
+    image: "/images/Preparation.jpg",
     description: "Innovative, delicious meals.",
     modal_content: "Insert more detailed modal content here.",
   },
@@ -54,12 +54,10 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* About Us Header */}
       <header className="about-header">
         <h1>About Us</h1>
       </header>
 
-      {/* Our Story Section */}
       <section className="our-story">
         <h2>Our Story</h2>
         <div className="story-content">
@@ -73,7 +71,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Approach Section */}
       <section className="our-approach">
         <h2>Our Approach</h2>
         <div className="timeline-container">
@@ -105,7 +102,6 @@ const About = () => {
         )}
       </section>
 
-      {/* Commitment to Sustainability Section */}
       <section className="sustainability">
         <h2>Commitment to Sustainability</h2>
         <div className="sustainability-content">
@@ -118,7 +114,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Meet the Chefs Section */}
       <section className="meet-chefs">
         <h2>Meet the Chefs</h2>
         <div className="chefs-grid">

@@ -91,6 +91,8 @@
 }
 .timeline-item img {
     border-radius: 10px;
+    height: 40%;
+    width: 40%;
 }
 .timeline-item .timeline-content {
     text-align: center;
@@ -126,6 +128,18 @@
     animation: scaleUp 0.3s ease;
     position: relative;
 }
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .modal-content h2 {
     font-size: 2rem;
     color: #E07A5F;
@@ -145,16 +159,6 @@
     cursor: pointer;
 }
 
-@keyframes scaleUp {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
 
 .sustainability {
     display: flex;

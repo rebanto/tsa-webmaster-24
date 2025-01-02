@@ -6,6 +6,9 @@ import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
 import Order from "./pages/Order";
 import AdminPage from "./pages/AdminPage";
+import Reviews from "./pages/Reviews";
+import References from "./pages/References";
+import Sources from "./pages/Sources";
 import "./index.css";
 
 function App() {
@@ -22,7 +25,15 @@ function App() {
           <Link to="/menu">Menu</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/order">Order</Link>
-          <Link to="/admin">Admin</Link>
+          <div className="dropdown">
+            <span className="dropdown-toggle">More</span>
+            <div className="dropdown-menu">
+              <Link to="/admin">Admin</Link>
+              <Link to="/reviews">Reviews</Link>
+              <Link to="/sources">Sources</Link>
+              <Link to="/references">References</Link>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -34,6 +45,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/order" element={<Order />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/sources" element={<Sources />} />
+          <Route path="/references" element={<References />} />
         </Routes>
       </main>
     </div>
