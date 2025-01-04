@@ -11,6 +11,7 @@
 
 .go-to-menu-btn {
   margin-top: 10px;
+  border-radius: 5px;
 }
 
 .order-page .cart {
@@ -45,7 +46,6 @@
   padding-left: 0;
   margin-bottom: 20px;
   width: 100%;
-  min-height: 200px;
 }
 
 .order-page .cart li {
@@ -101,4 +101,8 @@
   border-radius: 5px;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+.order-page form button:hover {
+  background-color: #3D405B;
 }

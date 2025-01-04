@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
 import "./AboutPage.css";
 
 const timelineSteps = [
@@ -53,59 +54,75 @@ const About = () => {
   const closeModal = () => setSelectedStep(null);
 
   return (
-    <div className="about-page">
-      <header className="about-header">
+    <div className="about-page container">
+      <header className="about-header text-center">
         <h1>About Us</h1>
       </header>
 
       <section className="our-story">
-        <h2>Our Story</h2>
-        <div className="story-content">
-          <p>
+        <h2 className="text-center">Our Story</h2>
+        <div className="story-content d-flex justify-content-center align-items-center gap-3">
+          <p className="flex-1">
             Welcome to our vegetarian restaurant, where passion meets
             sustainability. Our journey began with a dream of redefining
             plant-based dining, delivering delicious meals that respect our
             planet.
           </p>
-          <img src="/images/our_story.jpeg" alt="Our Story" />
+          <img
+            src="/images/our_story.jpg"
+            alt="Our Story"
+            className="img-fluid rounded"
+          />
         </div>
       </section>
 
       <section className="our-approach">
-        <h2>Our Approach</h2>
+        <h2 className="text-center">Our Approach</h2>
         <div className="timeline-container">
           {timelineSteps.map((step, index) => (
-            <div
-              key={step.id}
-              className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
-              onClick={() => setSelectedStep(step)}
-            >
-              <img src={step.image} alt={step.title} />
-              <div className="timeline-content">
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+            <div key={step.id}>
+              <div
+                className="timeline-item d-flex align-items-center gap-3 p-3 rounded-3 shadow-sm"
+                onClick={() => setSelectedStep(step)}
+              >
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="rounded-3"
+                  style={{ width: "40%", height: "auto" }}
+                />
+                <div className="timeline-content flex-1 text-center">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
               </div>
+              {index < timelineSteps.length - 1 && (
+                <div className="arrow-container text-center">
+                  <img src="images/arrow.png" alt="arrow" className="arrow-image" />
+                </div>
+              )}
             </div>
           ))}
         </div>
-
-        {selectedStep && (
-          <div className="modal" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="close-button" onClick={closeModal}>
-                X
-              </button>
-              <h2>{selectedStep.title}</h2>
-              <p>{selectedStep.modal_content}</p>
-            </div>
-          </div>
-        )}
       </section>
 
+      {selectedStep && (
+        <Modal show={true} onHide={closeModal} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>{selectedStep.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{selectedStep.modal_content}</Modal.Body>
+        </Modal>
+      )}
+
       <section className="sustainability">
-        <h2>Commitment to Sustainability</h2>
-        <div className="sustainability-content">
-          <img src="/images/sustainability.jpeg" alt="Sustainability" />
+        <h2 className="text-center">Commitment to Sustainability</h2>
+        <div className="sustainability-content d-flex justify-content-center align-items-center gap-4">
+          <img
+            src="/images/sustainability.webp"
+            alt="Sustainability"
+            className="img-fluid rounded"
+          />
           <p>
             We are dedicated to reducing waste, sourcing responsibly, and using
             eco-friendly packaging. Together, we make a positive impact on the
@@ -115,41 +132,37 @@ const About = () => {
       </section>
 
       <section className="meet-chefs">
-        <h2>Meet the Chefs</h2>
-        <div className="chefs-grid">
-          <div className="chef-card">
-            <img src="/images/chef1.jpeg" alt="Chef 1" />
-            <h3>Chef Nishant</h3>
-            <p>Expert in plant-based cuisines with 15+ years of experience.</p>
-          </div>
-          <div className="chef-card">
-            <img src="/images/chef2.jpeg" alt="Chef 2" />
-            <h3>Chef Rebanto</h3>
-            <p>
-              Innovator in plant-based cuisine, ensuring every dish is a
-              masterpiece.
-            </p>
-          </div>
-          <div className="chef-card">
-            <img src="/images/chef3.jpeg" alt="Chef 3" />
-            <h3>Chef Sid</h3>
-            <p>Passionate about sustainability and seasonal ingredients.</p>
-          </div>
-          <div className="chef-card">
-            <img src="/images/chef3.jpeg" alt="Chef 3" />
-            <h3>Chef Sathvik</h3>
-            <p>
-              Creative culinary artist bringing innovative flavors to the table.
-            </p>
-          </div>
-          <div className="chef-card">
-            <img src="/images/chef3.jpeg" alt="Chef 3" />
-            <h3>Chef Ryan</h3>
-            <p>
-              Advocate for zero-waste cooking, blending creativity with
-              sustainability.
-            </p>
-          </div>
+        <h2
+          className="text-center"
+          style={{ marginBottom: "30px", marginTop: "0px" }}
+        >
+          Meet the Chefs
+        </h2>
+        <div className="chefs-grid d-flex flex-wrap justify-content-center gap-3">
+          {["Nishant", "Rebanto", "Sid", "Sathvik", "Ryan"].map(
+            (chefName, index) => (
+              <div className="chef-card text-center p-3 shadow-sm" key={index}>
+                <img
+                  src={`/images/chef${index + 1}.jpeg`}
+                  alt={`Chef ${chefName}`}
+                  className="img-fluid rounded mb-2"
+                />
+                <h3>{`Chef ${chefName}`}</h3>
+                <p>
+                  {index === 0 &&
+                    "Expert in plant-based cuisines with 15+ years of experience."}
+                  {index === 1 &&
+                    "Innovator in plant-based cuisine, ensuring every dish is a masterpiece."}
+                  {index === 2 &&
+                    "Passionate about sustainability and seasonal ingredients."}
+                  {index === 3 &&
+                    "Creative culinary artist bringing innovative flavors to the table."}
+                  {index === 4 &&
+                    "Advocate for zero-waste cooking, blending creativity with sustainability."}
+                </p>
+              </div>
+            )
+          )}
         </div>
       </section>
     </div>

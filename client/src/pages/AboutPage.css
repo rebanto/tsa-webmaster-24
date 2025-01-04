@@ -5,6 +5,7 @@
 
 .about-page section {
     margin-bottom: 60px;
+    background-color: #e6c39b;
 }
 
 .about-header {
@@ -25,10 +26,11 @@
     text-align: center;
 }
 
-.our-story h2 {
-    font-size: 2rem;
-    color: #E07A5F;
-    margin-bottom: 20px;
+h2 {
+    font-size: 2rem !important;
+    color: #E07A5F !important;
+    margin-bottom: 20px !important;
+    font-weight: 600 !important;
 }
 
 .our-story .story-content {
@@ -58,15 +60,15 @@
 .our-approach {
     margin-bottom: 40px;
 }
-.our-approach h2 {
-    font-size: 2rem;
-    color: #E07A5F;
-    margin-bottom: 20px;
+
+.arrow-image {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
 .timeline-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }
 .timeline-item {
     display: flex;
@@ -75,7 +77,7 @@
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 10px;
-    border: 3px solid #E07A5F;
+    border: 3px solid #E07A5F ;
     border-radius: 15px;
     background-color: #f4f1de;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -87,7 +89,7 @@
 }
 
 .timeline-item.left {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse !important;
 }
 .timeline-item img {
     border-radius: 10px;
@@ -107,26 +109,17 @@
 }
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7) !important;
 }
+
 .modal-content {
-    background-color: #F4F1DE;
+    background-color: #F4F1DE !important;
     padding: 20px;
     border-radius: 10px;
     width: 90%;
     max-width: 600px;
     text-align: center;
     animation: scaleUp 0.3s ease;
-    position: relative;
 }
 
 @keyframes scaleUp {
@@ -140,13 +133,13 @@
     }
 }
 
-.modal-content h2 {
-    font-size: 2rem;
-    color: #E07A5F;
+.modal-header {
+    color: #E07A5F !important;
 }
+
 .modal-content p {
-    font-size: 1rem;
-    color: #3D405B;
+    font-size: 1rem !important;
+    color: #3D405B !important;
 }
 .close-button {
     position: absolute;
@@ -170,8 +163,6 @@
 .sustainability h2 {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
-    color: #E07A5F;
     margin-bottom: 20px;
 }
 
@@ -227,4 +218,8 @@
 .meet-chefs .chef-card p {
     font-size: 1rem;
     color: #3D405B;
+}
+
+.meet-chefs .h2 {
+    margin-bottom: 20px !important;
 }

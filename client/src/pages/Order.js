@@ -24,9 +24,9 @@ function Order() {
     const summary = cart.reduce((acc, item) => {
       const existingItem = acc.find((i) => i.id === item.id);
       if (existingItem) {
-        existingItem.count += 1;
+        existingItem.count += item.count;
       } else {
-        acc.push({ ...item, count: 1 });
+        acc.push({ ...item });
       }
       return acc;
     }, []);
@@ -34,7 +34,7 @@ function Order() {
   };
 
   const getTotal = () => {
-    return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
+    return cart.reduce((total, item) => total + item.price * item.count, 0).toFixed(2);
   };
 
   const handleRemoveItem = (id) => {
@@ -45,12 +45,19 @@ function Order() {
 
   const handleCartSubmit = (e) => {
     e.preventDefault();
+    
+    const cartSummary = getCartSummary();
+    
     fetch("http://localhost:5000/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name: orderDetails.name, email: orderDetails.email, items: cart }),
+      body: JSON.stringify({
+        name: orderDetails.name,
+        email: orderDetails.email,
+        items: cartSummary,
+      }),
     })
       .then((response) => response.json())
       .then((data) => {

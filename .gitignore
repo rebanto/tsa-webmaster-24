@@ -5,3 +5,4 @@ server/venv/
 # Bytecode and caches
 __pycache__/
 *.pyc
+.env
