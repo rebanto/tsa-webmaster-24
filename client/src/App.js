@@ -17,8 +17,8 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-e07a5f sticky-top">
         <div className="logo d-flex align-items-center">
-          <img src="images/placeholder.jpg" alt="Logo" className="img-fluid" style={{ height: "50px" }} />
-          <span className="fs-4 fw-bold text-light">Vegan Restaurant or Something</span>
+          <img src="images/web_logo.png" alt="Logo" className="img-fluid" style={{ height: "50px" }} />
+          <span className="fs-4 fw-bold text-light">The Green Platter</span>
         </div>
         <div className="links ms-auto">
           <ul className="navbar-nav d-flex flex-row gap-4">

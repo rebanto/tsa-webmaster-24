@@ -6,15 +6,15 @@ h1 {
   font-size: 2.1rem;
   text-align: center;
   background-color: #f4f1de !important;
-  color: #e07a5f !important;
+  color: #186a48 !important;
   padding: 0px;
   margin-bottom: 40px;
   font-weight: 600;
 }
 
 .btn-primary {
-  background-color: #e07a5f !important;
-  border-color: #e07a5f !important;
+  background-color: #186a48 !important;
+  border-color: #186a48 !important;
 }
 
 .btn-primary:hover {

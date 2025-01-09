@@ -28,7 +28,7 @@ h2 {
   left: 50%;
   width: 5px;
   height: 100%;
-  background-color: #E07A5F;
+  background-color: #186a48;
   transform: translateX(-50%);
 }
 
@@ -55,7 +55,7 @@ h2 {
 }
 
 .menu-item {
-  border: 1px solid #E07A5F;
+  border: 1px solid #186a48;
   border-radius: 10px;
   padding: 20px;
   background-color: #F4F1DE;
@@ -114,7 +114,7 @@ h2 {
 .add-to-cart {
   margin-top: auto;
   padding: 12px;
-  background-color: #E07A5F;
+  background-color: #186a48;
   color: white;
   border: none;
   border-radius: 5px;
@@ -157,7 +157,7 @@ h2 {
 
 .cart h3 {
   text-align: center;
-  color: #E07A5F;
+  color: #186a48;
   font-size: 1.5rem;
   margin-bottom: 15px;
   font-weight: bold;
@@ -180,7 +180,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #E07A5F;
+  border: 1px solid #186a48;
   padding: 10px;
   border-radius: 8px;
   background-color: #F4F1DE;
@@ -189,7 +189,7 @@ h2 {
 .total {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #E07A5F;
+  color: #186a48;
   width: 100%;
   text-align: right;
   margin-top: auto;  

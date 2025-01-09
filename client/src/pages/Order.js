@@ -61,7 +61,7 @@ function Order() {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(`${data.message}`);
+        alert(`Order submitted.`);
         setCart([]);
         localStorage.removeItem('cart');
       })

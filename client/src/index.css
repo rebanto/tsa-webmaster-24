@@ -69,7 +69,7 @@ section {
 }
 
 .navbar {
-  background-color: #e07a5f !important;
+  background-color: #186a48 !important;
   color: #f4f1de !important;
   padding: 10px 20px !important;
   display: flex !important;
@@ -116,6 +116,7 @@ section {
   text-decoration: underline !important;
   text-decoration-thickness: 3px !important;
 }
+
 .dropdown-item {
   color: #f4f1de;
   font-weight: bold;
@@ -123,7 +124,7 @@ section {
 }
 
 .dropdown-item:hover {
-  background-color: #e07a5f !important;
+  background-color: #186a48 !important;
 }
 
 .dropdown-menu a {
@@ -131,7 +132,7 @@ section {
 }
 
 .dropdown-menu {
-  background-color: #e07a5f !important;
+  background-color: #186a48 !important;
   max-height: 70vh !important;
   overflow-y: auto !important;
   position: absolute !important;
@@ -140,4 +141,8 @@ section {
   right: 0 !important;
   transform: translateX(-50%) !important;
   z-index: 10000 !important;
+}
+
+.dropdown-toggle {
+  color: #f8f9fa !important;
 }

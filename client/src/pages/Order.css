@@ -14,6 +14,10 @@
   border-radius: 5px;
 }
 
+.order-page button  {
+  background-color: #186a48 !important;
+}
+
 .order-page .cart {
   margin-top: 20px;
   position: relative;
@@ -29,13 +33,13 @@
 
 .order-page h2 {
   text-align: center;
-  color: #E07A5F;
+  color: #186a48;
   margin-bottom: 20px;
 }
 
 .order-page .cart h3 {
   text-align: center;
-  color: #E07A5F;
+  color: #186a48;
   font-size: 1.5rem;
   margin-bottom: 15px;
   font-weight: bold;
@@ -59,7 +63,7 @@
 
 .order-page .cart li span {
   font-weight: bold;
-  color: #E07A5F;
+  color: #186a48;
 }
 
 .order-page .cart .total {
@@ -94,7 +98,7 @@
 
 .order-page form button {
   width: 100%;
-  background-color: #E07A5F;
+  background-color: #186a48 !important;
   color: #F4F1DE;
   padding: 10px;
   border: none;

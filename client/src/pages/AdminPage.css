@@ -9,16 +9,18 @@
 
 .admin-page h1 {
   text-align: center;
-  color: #3D405B;
+  color: #186a48 !important;
+  font-weight: 600;
   margin-bottom: 20px;
   font-size: 2.5rem;
 }
 
 .admin-page h2 {
-  color: #E07A5F;
+  color: #186a48;
   margin-bottom: 10px;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: 100 !important;
 }
 
 table {
@@ -35,7 +37,7 @@ table td {
 }
 
 table th {
-  background-color: #E07A5F;
+  background-color: #186a48;
   color: #F4F1DE;
   font-weight: bold;
 }
@@ -54,7 +56,7 @@ table tr:hover {
 }
 
 table input[type="checkbox"] {
-  transform: scale(1.5); /* Make the checkbox a little bigger */
+  transform: scale(1.5);
   cursor: pointer;
 }
 
@@ -66,4 +68,9 @@ table ul {
 table li {
   font-size: 1rem;
   color: #3D405B;
+}
+
+button {
+  border-radius: 10px !important;
+  background-color: #186a48;
 }

@@ -13,9 +13,10 @@ const AdminPage = () => {
     };
 
     const fetchPendingReviews = async () => {
-      const response = await fetch("http://localhost:5000/api/admin/reviews");
+      const response = await fetch("http://localhost:5000/api/reviews");
       const data = await response.json();
-      setPendingReviews(data);
+      const unapprovedReviews = data.filter((review) => !review.approved);
+      setPendingReviews(unapprovedReviews);
     };
 
     fetchOrders();
@@ -26,9 +27,9 @@ const AdminPage = () => {
     const grouped = items.reduce((acc, item) => {
       const existingItem = acc.find((i) => i.name === item.name);
       if (existingItem) {
-        existingItem.quantity += item.count;
+        existingItem.quantity += item.quantity || 1;
       } else {
-        acc.push({ ...item, quantity: item.count });
+        acc.push({ ...item, quantity: item.quantity || 1 });
       }
       return acc;
     }, []);
@@ -36,61 +37,35 @@ const AdminPage = () => {
   };
 
   const handleCheckboxChange = async (index) => {
-    try {
-      const order = orders[index];
-      const orderId = order._id || index;
-
-      const response = await fetch(
-        `http://localhost:5000/api/orders/${orderId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.ok) {
-        setOrders(orders.filter((_, i) => i !== index));
-      } else {
-        console.error("Failed to delete order");
-      }
-    } catch (error) {
-      console.error("error:", error);
-    }
+    const order = orders[index];
+    const payload = {
+      name: order.name,
+      email: order.email,
+      items: order.items,
+    };
+    const response = await fetch("http://localhost:5000/api/orders", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    setOrders(orders.filter((_, i) => i !== index));
   };
 
   const handleApprove = async (index) => {
-    try {
-      const review = pendingReviews[index];
-      const reviewId = review.id;
-  
-      if (!reviewId) {
-        console.error("Review ID is missing!");
-        return;
-      }
-  
-      const response = await fetch(
-        `http://localhost:5000/api/admin/reviews/${reviewId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ approved: true }),
-        }
-      );
-      
-      if (response.ok) {
-        setPendingReviews(pendingReviews.filter((_, i) => i !== index));
-      } else {
-        console.error("Failed to approve review");
-      }
-    } catch (error) {
-      console.error("Error approving review:", error);
-    }
+    const review = pendingReviews[index];
+    const reviewContent = review.content;
+
+    const response = await fetch("http://localhost:5000/api/admin/reviews", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content: reviewContent, approved: true }),
+    });
+    setPendingReviews(pendingReviews.filter((_, i) => i !== index));
   };
-  
-  
 
   return (
     <div className="admin-page">
@@ -100,17 +75,18 @@ const AdminPage = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Customer Name</th>
             <th>Email</th>
             <th>Items</th>
             <th>Number of Items</th>
             <th>Completed</th>
+            <th>Created At</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            <tr key={index}>
-              <td>{order.name}</td>
+            <tr key={order.id}>
+              <td>{order.customer_name}</td>
               <td>{order.email}</td>
               <td>
                 {order.items ? (
@@ -134,12 +110,13 @@ const AdminPage = () => {
                   onChange={() => handleCheckboxChange(index)}
                 />
               </td>
+              <td>{new Date(order.created_at).toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <h2 style={{marginTop: '80px'}}>Pending Reviews</h2>
+      <h2 style={{ marginTop: "80px" }}>Pending Reviews</h2>
       <table>
         <thead>
           <tr>
@@ -151,10 +128,10 @@ const AdminPage = () => {
         </thead>
         <tbody>
           {pendingReviews.map((review, index) => (
-            <tr key={index}>
+            <tr key={review.id}>
               <td>{review.name}</td>
               <td>{review.content}</td>
-              <td>{review.date}</td>
+              <td>{new Date(review.date).toLocaleString()}</td>
               <td>
                 <button onClick={() => handleApprove(index)}>Approve</button>
               </td>

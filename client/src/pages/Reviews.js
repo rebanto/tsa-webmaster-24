@@ -9,15 +9,26 @@ const Reviews = () => {
   useEffect(() => {
     fetch("http://127.0.0.1:5000/api/reviews")
       .then((response) => response.json())
-      .then((data) => setReviews(data))
-      .catch((error) => console.error("Error fetching reviews:", error));
+      .then((data) => {
+        const approvedReviews = data
+          .filter((review) => review.approved)
+          .map((review) => ({
+            ...review,
+            formattedDate: new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }).format(new Date(review.date)),
+          }));
+        setReviews(approvedReviews);
+      })
+      
   }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewReview({ ...newReview, [name]: value });
   };
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -27,9 +38,13 @@ const Reviews = () => {
       month: "long",
       day: "numeric",
     });
-  
-    const reviewWithDate = { ...newReview, date: formattedDate, approved: false };
-  
+
+    const reviewWithDate = {
+      ...newReview,
+      date: formattedDate,
+      approved: false,
+    };
+
     fetch("http://127.0.0.1:5000/api/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,11 +54,12 @@ const Reviews = () => {
       .then((data) => {
         setNewReview({ name: "", content: "" });
         setIsFormVisible(false);
+        alert(
+          "Review sent successfully, and will be visible once an admin approves it."
+        );
       })
-      .catch((error) => console.error("Error submitting review:", error));
+      .catch((error) => alert("Error submitting review."));
   };
-  
-  
 
   return (
     <div className="reviews-page container">
@@ -110,10 +126,11 @@ const Reviews = () => {
       <div className="reviews-container mt-3">
         {reviews.map((review, index) => (
           <div className="review p-3 mb-3 shadow-sm rounded" key={index}>
-            <h3 className="mb-2">{review.name}</h3>
-            <p>"{review.content}"</p>
-            <small className="text-muted">Posted on {review.date}</small>
-          </div>
+          <h3 className="mb-2">{review.name}</h3>
+          <p>"{review.content}"</p>
+          <small className="text-muted">Posted on {review.formattedDate}</small>
+        </div>
+        
         ))}
       </div>
     </div>

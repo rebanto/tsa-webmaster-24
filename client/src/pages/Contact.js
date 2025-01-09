@@ -51,7 +51,7 @@ function Contact() {
       <style>
         {`
           .btn {
-            background-color: #e07a5f;
+            background-color: #186a48;
             color: white;
           }
           .btn:hover {
@@ -65,7 +65,7 @@ function Contact() {
       <div
         className="contact-form-wrapper p-4 rounded shadow-sm"
         style={{
-          background: "linear-gradient(135deg, #f4f1de, #e07a5f20)",
+          background: "linear-gradient(135deg, #f4f1de, #d8f3dc)",
           maxWidth: "50%",
           alignItems: "center",
           margin: "auto",
