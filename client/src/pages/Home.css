@@ -1,0 +1,41 @@
+.main {
+  margin-top: 0px;
+}
+
+.c-item {
+  height: 600px;
+  object-fit: cover;
+  filter: brightness(1.4);
+}
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: white;
+  border-radius: 5px;
+  opacity: 0.8;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  cursor: default;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.one {
+  height: 500px;
+}

@@ -11,15 +11,19 @@ pending_reviews = []
 
 @app.route('/api/orders', methods=['POST'])
 def add_order():
-    order_data = request.json
-    email = order_data.get('email')
-    items = order_data.get('items')
-    completed = order_data.get('completed', False)
-    customer_name = order_data.get('name')
+    try:
+        order_data = request.json
+        email = order_data.get('email')
+        items = order_data.get('items')
+        completed = order_data.get('completed', False)
+        customer_name = order_data.get('name')
 
-    response = add_order_to_db(email, items, completed, customer_name)
+        response = add_order_to_db(email, items, completed, customer_name)
 
-    return jsonify({"message": "Order added successfully", "data": response["data"]}), 201
+        return jsonify({"message": "Order added successfully", "data": response["data"]}), 201
+    except Exception as e:
+        return jsonify({"message": "An error occurred", "error": str(e)}), 500
+
 
 @app.route('/api/admin/orders', methods=['GET'])
 def get_all_orders():
