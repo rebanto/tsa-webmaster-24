@@ -6,8 +6,11 @@ function Order() {
   const [orderDetails, setOrderDetails] = useState({
     name: "",
     email: "",
+    promo: "",
+    totalPrice: 0,
   });
   const [cart, setCart] = useState([]);
+  const [promoApplied, setPromoApplied] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,28 +18,48 @@ function Order() {
     setCart(storedCart);
   }, []);
 
+  useEffect(() => {
+    let total = getTotalPrice();
+    if (orderDetails.promo === "Spring25") {
+      total = total - total * 0.25;
+      setPromoApplied(true);
+    } else {
+      setPromoApplied(false);
+    }
+    setOrderDetails((prevState) => ({
+      ...prevState,
+      totalPrice: total.toFixed(2),
+    }));
+  }, [cart, orderDetails.promo]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setOrderDetails({ ...orderDetails, [name]: value });
   };
 
   const getCartSummary = () => {
-    const summary = cart.reduce((acc, item) => {
-      const existingItem = acc.find((i) => i.id === item.id);
+    const summary = [];
+
+    cart.forEach((item) => {
+      const existingItem = summary.find((i) => i.id === item.id);
       if (existingItem) {
         existingItem.count += item.count;
       } else {
-        acc.push({ ...item });
+        summary.push({ ...item });
       }
-      return acc;
-    }, []);
+    });
+
     return summary;
   };
 
-  const getTotal = () => {
-    return cart
-      .reduce((total, item) => total + item.price * item.count, 0)
-      .toFixed(2);
+  const getTotalPrice = () => {
+    let total = 0;
+
+    cart.forEach((item) => {
+      total += item.price * item.count;
+    });
+
+    return total;
   };
 
   const handleRemoveItem = (id) => {
@@ -84,6 +107,9 @@ function Order() {
         ) : (
           <>
             <h3>Cart</h3>
+            <p>
+              <strong>Seasonal Promo Code: Spring25</strong>
+            </p>
             <ul>
               {getCartSummary().map((item) => (
                 <li key={item.id}>
@@ -107,29 +133,44 @@ function Order() {
               ))}
             </ul>
             <div className="total">
-              <strong>Total: ${getTotal()}</strong>
+              <strong>Total: ${orderDetails.totalPrice}</strong>
             </div>
             <form onSubmit={handleCartSubmit}>
-              <div>
-                <label>Name: </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={orderDetails.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div>
-                <label>Email: </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={orderDetails.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
+              <label>Name: </label>
+              <input
+                type="text"
+                name="name"
+                value={orderDetails.name}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Email: </label>
+              <input
+                type="email"
+                name="email"
+                value={orderDetails.email}
+                onChange={handleInputChange}
+                required
+              />
+              <label>Promo Code: </label>
+              <input
+                type="text"
+                name="promo"
+                value={orderDetails.promo}
+                onChange={handleInputChange}
+              />
+              {orderDetails.promo !== "" ? (
+                orderDetails.promo === "Spring25" ? (
+                  <div className="alert alert-success mt-3">
+                    Promo code applied, 25% discount received! 😀
+                  </div>
+                ) : (
+                  <div className="alert alert-danger mt-3">
+                    Invalid promo code ☹️
+                  </div>
+                )
+              ) : null}
+
               <button type="submit">Place Cart Order</button>
             </form>
           </>
