@@ -1,13 +1,17 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-from supabase_client import add_order_to_db, get_all_from_table, delete_order_from_db, add_review_to_db, update_review_in_table
+from supabase_client import add_order_to_db, get_all_from_table, delete_order_from_db, add_review_to_db, update_review_in_table, delete_review_from_db
 import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../client/build', static_url_path='/')
 CORS(app)
 
 reviews = []
 pending_reviews = []
+
+@app.route('/', methods=['GET'])
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/orders', methods=['POST'])
 def add_order():
@@ -21,8 +25,8 @@ def add_order():
         response = add_order_to_db(email, items, completed, customer_name)
 
         return jsonify({"message": "Order added successfully", "data": response["data"]}), 201
-    except Exception as e:
-        return jsonify({"message": "An error occurred", "error": str(e)}), 500
+    except Exception:
+        return jsonify({"message": "error", "error": str(Exception)}), 500
 
 
 @app.route('/api/admin/orders', methods=['GET'])
@@ -49,16 +53,13 @@ def delete_order():
     return jsonify({"message": "Order not found"}), 404
 
 @app.route('/api/reviews', methods=['POST'])
-def add_review():
-    try:
-        review = request.json
-        review['approved'] = False
+def add_review():        
+    review = request.json
+    review['approved'] = False
         
-        result = add_review_to_db(review)
+    result = add_review_to_db(review)
         
-        return jsonify({"message": "Review submitted for approval", "data": result}), 201
-    except Exception as e:
-        return jsonify({"error": "Failed to submit review"}), 500
+    return jsonify({"message": "Review submitted for approval", "data": result}), 201
 
 @app.route('/api/reviews', methods=['GET'])
 def get_reviews():
@@ -74,14 +75,21 @@ def approve_review():
     data = request.json
     review_content = data.get('content')
 
-    if not review_content:
-        return jsonify({"message": "Review content is missing"}), 400
-
     response = update_review_in_table("reviews", {"approved": True}, {"content": review_content})
-    if response:
-        return jsonify({"message": "Review approved successfully"}), 200
-    else:
-        return jsonify({"message": "Review not found"}), 404
+    return jsonify({"message": "Review approved successfully"}), 200
+
+
+
+@app.route('/api/reviews', methods=['DELETE'])
+def delete_review():
+    data = request.get_json()
+    print(data)
+
+    content = data.get('content')
+    result = delete_review_from_db(content)
+
+    return jsonify({"message": "Review deleted successfully"}), 200
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

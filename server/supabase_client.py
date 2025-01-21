@@ -40,8 +40,19 @@ def delete_order_from_db( email):
 
 def add_review_to_db(review):
     response = supabase.table('reviews').insert(review).execute()
-    return response.get('data', [])
+    return response.data
 
 def update_review_in_table(table_name, update_data, match):
     response = supabase.table(table_name).update(update_data).match(match).execute()
     return response
+
+def delete_review_from_db(content):
+    response = (
+        supabase.table('reviews')
+        .delete()
+        .eq('content', content)
+        .execute()
+    )
+    if response.data:
+        return True
+    return False

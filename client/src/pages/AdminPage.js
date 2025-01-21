@@ -6,33 +6,37 @@ const AdminPage = () => {
   const [pendingReviews, setPendingReviews] = useState([]);
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      const response = await fetch("http://localhost:5000/api/admin/orders");
-      const data = await response.json();
-      setOrders(data);
+    const fetchOrders = () => {
+      fetch("/api/admin/orders")
+        .then(response => response.json())
+        .then(data => {
+          setOrders(data);
+        });
     };
 
-    const fetchPendingReviews = async () => {
-      const response = await fetch("http://localhost:5000/api/reviews");
-      const data = await response.json();
-      const unapprovedReviews = data.filter((review) => !review.approved);
-      setPendingReviews(unapprovedReviews);
-    };
+    const fetchPendingReviews = () => {
+      fetch("/api/reviews")
+        .then(response => response.json())
+        .then(data => {
+          const unapprovedReviews = data.filter((review) => !review.approved);
+          setPendingReviews(unapprovedReviews);
+        });
+    };    
 
     fetchOrders();
     fetchPendingReviews();
   }, []);
 
   const groupItems = (items) => {
-    const grouped = items.reduce((acc, item) => {
-      const existingItem = acc.find((i) => i.name === item.name);
+    const grouped = [];
+    for (const item of items) {
+      const existingItem = grouped.find((i) => i.name === item.name);
       if (existingItem) {
         existingItem.quantity += item.quantity || 1;
       } else {
-        acc.push({ ...item, quantity: item.quantity || 1 });
+        grouped.push({ ...item, quantity: item.quantity || 1 });
       }
-      return acc;
-    }, []);
+    }
     return grouped;
   };
 
@@ -50,7 +54,7 @@ const AdminPage = () => {
       },
       body: JSON.stringify(payload),
     });
-    setOrders(orders.filter((_, i) => i !== index));
+    setOrders(orders.filter((j, i) => i !== index));
   };
 
   const handleApprove = async (index) => {
@@ -64,7 +68,23 @@ const AdminPage = () => {
       },
       body: JSON.stringify({ content: reviewContent, approved: true }),
     });
-    setPendingReviews(pendingReviews.filter((_, i) => i !== index));
+    setPendingReviews(pendingReviews.filter((j, i) => i !== index));
+  };
+
+  const handleReviewDelete = async (index) => {
+    const review = pendingReviews[index];
+    const payload = {
+      content: review.content,
+    };
+
+    const response = await fetch("http://localhost:5000/api/reviews", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    setPendingReviews(pendingReviews.filter((j, i) => i !== index));
   };
 
   return (
@@ -84,35 +104,39 @@ const AdminPage = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((order, index) => (
-            <tr key={order.id}>
-              <td>{order.customer_name}</td>
-              <td>{order.email}</td>
-              <td>
-                {order.items ? (
+          {orders.length > 0 ? (
+            orders.map((order, index) => (
+              <tr key={order.id}>
+                <td>{order.customer_name}</td>
+                <td>{order.email}</td>
+                <td>
                   <ul>
                     {groupItems(order.items).map((item, idx) => (
                       <li key={idx}>
                         {item.name} - ${item.price}{" "}
-                        {item.quantity > 1 && `x${item.quantity}`}
+                        {item.count > 1 && `x${item.count}`}
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <span>No items</span>
-                )}
+                </td>
+                <td>{order.items.length}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={order.completed}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                </td>
+                <td>{new Date(order.created_at).toLocaleString()}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6" style={{ textAlign: "center" }}>
+                No orders available.
               </td>
-              <td>{order.items ? order.items.length : 0}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={order.completed}
-                  onChange={() => handleCheckboxChange(index)}
-                />
-              </td>
-              <td>{new Date(order.created_at).toLocaleString()}</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
 
@@ -132,8 +156,11 @@ const AdminPage = () => {
               <td>{review.name}</td>
               <td>{review.content}</td>
               <td>{new Date(review.date).toLocaleString()}</td>
-              <td>
+              <td className="d-flex justify-content-around">
                 <button onClick={() => handleApprove(index)}>Approve</button>
+                <button onClick={() => handleReviewDelete(index)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

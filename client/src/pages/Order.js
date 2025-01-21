@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
-import './Order.css';
+import { useNavigate } from "react-router-dom";
+import "./Order.css";
 
 function Order() {
   const [orderDetails, setOrderDetails] = useState({
@@ -8,10 +8,10 @@ function Order() {
     email: "",
   });
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
@@ -34,20 +34,22 @@ function Order() {
   };
 
   const getTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.count, 0).toFixed(2);
+    return cart
+      .reduce((total, item) => total + item.price * item.count, 0)
+      .toFixed(2);
   };
 
   const handleRemoveItem = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const handleCartSubmit = (e) => {
     e.preventDefault();
-    
+
     const cartSummary = getCartSummary();
-    
+
     fetch("http://localhost:5000/api/orders", {
       method: "POST",
       headers: {
@@ -58,18 +60,14 @@ function Order() {
         email: orderDetails.email,
         items: cartSummary,
       }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(`Order submitted.`);
-        setCart([]);
-        localStorage.removeItem('cart');
-      })
-      .catch((error) => console.error("error:", error));
+    });
+    alert(`Order submitted.`);
+    setCart([]);
+    localStorage.removeItem("cart");
   };
 
   const handleGoToMenu = () => {
-    navigate("/menu"); 
+    navigate("/menu");
   };
 
   return (
@@ -79,7 +77,9 @@ function Order() {
         {cart.length === 0 ? (
           <div className="empty-cart">
             <p>Your cart is empty. Please add some items from the menu.</p>
-            <button onClick={handleGoToMenu} className="go-to-menu-btn">Go to Menu</button>
+            <button onClick={handleGoToMenu} className="go-to-menu-btn">
+              Go to Menu
+            </button>
           </div>
         ) : (
           <>
@@ -87,17 +87,18 @@ function Order() {
             <ul>
               {getCartSummary().map((item) => (
                 <li key={item.id}>
-                  {item.name} - ${item.price} {item.count > 1 && `x${item.count}`}
+                  {item.name} - ${item.price}{" "}
+                  {item.count > 1 && `x${item.count}`}
                   <button
                     onClick={() => handleRemoveItem(item.id)}
                     style={{
-                      marginLeft: '10px',
-                      backgroundColor: '#E07A5F',
-                      color: '#fff',
-                      border: 'none',
-                      padding: '5px 10px',
-                      cursor: 'pointer',
-                      borderRadius: '5px'
+                      marginLeft: "10px",
+                      backgroundColor: "#E07A5F",
+                      color: "#fff",
+                      border: "none",
+                      padding: "5px 10px",
+                      cursor: "pointer",
+                      borderRadius: "5px",
                     }}
                   >
                     Remove

@@ -8,7 +8,7 @@ const Reviews = () => {
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/api/reviews")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         const approvedReviews = data
           .filter((review) => review.approved)
@@ -21,8 +21,7 @@ const Reviews = () => {
             }).format(new Date(review.date)),
           }));
         setReviews(approvedReviews);
-      })
-      
+      });
   }, []);
 
   const handleInputChange = (e) => {
@@ -49,16 +48,12 @@ const Reviews = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewWithDate),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setNewReview({ name: "", content: "" });
-        setIsFormVisible(false);
-        alert(
-          "Review sent successfully, and will be visible once an admin approves it."
-        );
-      })
-      .catch((error) => alert("Error submitting review."));
+    });
+    setNewReview({ name: "", content: "" });
+    setIsFormVisible(false);
+    alert(
+      "Review sent successfully, and will be visible once an admin approves it."
+    );
   };
 
   return (
@@ -126,11 +121,12 @@ const Reviews = () => {
       <div className="reviews-container mt-3">
         {reviews.map((review, index) => (
           <div className="review p-3 mb-3 shadow-sm rounded" key={index}>
-          <h3 className="mb-2">{review.name}</h3>
-          <p>"{review.content}"</p>
-          <small className="text-muted">Posted on {review.formattedDate}</small>
-        </div>
-        
+            <h3 className="mb-2">{review.name}</h3>
+            <p>"{review.content}"</p>
+            <small className="text-muted">
+              Posted on {review.formattedDate}
+            </small>
+          </div>
         ))}
       </div>
     </div>
