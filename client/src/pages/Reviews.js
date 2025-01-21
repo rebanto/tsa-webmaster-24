@@ -29,7 +29,7 @@ const Reviews = () => {
     setNewReview({ ...newReview, [name]: value });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const today = new Date();
     const formattedDate = today.toLocaleDateString("en-US", {
@@ -44,7 +44,7 @@ const Reviews = () => {
       approved: false,
     };
 
-    fetch("http://127.0.0.1:5000/api/reviews", {
+    await fetch("http://127.0.0.1:5000/api/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewWithDate),

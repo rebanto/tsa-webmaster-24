@@ -3,7 +3,6 @@
   flex-direction: column;
   padding: 20px;
   font-family: Arial, sans-serif;
-  justify-content: space-between;
 }
 
 h2 {
@@ -64,7 +63,6 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
 }
 
 .menu-item:hover {
@@ -78,10 +76,6 @@ h2 {
   gap: 10px;
 }
 
-.menu-item .item-info h4 {
-  margin-top: 20px;
-}
-
 .menu-item-image {
   width: 100%;
   height: 180px;
@@ -89,13 +83,10 @@ h2 {
   border-radius: 8px;
 }
 
-.item-text {
-  flex: 1;
-}
-
 .menu-item h4 {
   color: #3D405B;
   font-size: 1.6rem;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -103,7 +94,6 @@ h2 {
   color: #3D405B;
   font-size: 1rem;
   margin-bottom: 15px;
-  line-height: 1.4;
 }
 
 .price {
@@ -127,14 +117,6 @@ h2 {
   background-color: #3D405B;
 }
 
-.total {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #E07A5F;
-  width: 100%;
-  text-align: right;
-}
-
 .cart {
   position: fixed;
   bottom: 20px;
@@ -148,11 +130,9 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  font-family: Arial, sans-serif;
-  z-index: 1000;
+  z-index: 979870;
   max-height: 400px;
   overflow-y: auto;
-  transition: all 0.3s ease-in-out;
 }
 
 .cart h3 {
@@ -164,13 +144,12 @@ h2 {
 }
 
 .cart ul {
-  list-style-type: none;
   padding-left: 0;
   margin-bottom: 20px;
   width: 100%;
-  flex-grow: 1;  
-  overflow-y: auto;  
-  max-height: 250px;  
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 250px;
 }
 
 .cart li {
@@ -178,7 +157,6 @@ h2 {
   color: #3D405B;
   margin-bottom: 8px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border: 1px solid #186a48;
   padding: 10px;
@@ -192,5 +170,4 @@ h2 {
   color: #186a48;
   width: 100%;
   text-align: right;
-  margin-top: auto;  
 }

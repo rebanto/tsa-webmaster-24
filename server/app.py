@@ -17,14 +17,14 @@ def serve():
 def add_order():
     try:
         order_data = request.json
-        email = order_data.get('email')
-        items = order_data.get('items')
-        completed = order_data.get('completed', False)
-        customer_name = order_data.get('name')
+        email = order_data['email']
+        items = order_data['items']
+        completed = order_data['completed', False]
+        customer_name = order_data['name']
 
         response = add_order_to_db(email, items, completed, customer_name)
 
-        return jsonify({"message": "Order added successfully", "data": response["data"]}), 201
+        return jsonify({"message": "Order added successfully"}), 201
     except Exception:
         return jsonify({"message": "error", "error": str(Exception)}), 500
 
@@ -73,7 +73,7 @@ def get_reviews():
 @app.route('/api/admin/reviews', methods=['PUT'])
 def approve_review():
     data = request.json
-    review_content = data.get('content')
+    review_content = data['content']
 
     response = update_review_in_table("reviews", {"approved": True}, {"content": review_content})
     return jsonify({"message": "Review approved successfully"}), 200
@@ -85,11 +85,11 @@ def delete_review():
     data = request.get_json()
     print(data)
 
-    content = data.get('content')
+    content = data['content']
     result = delete_review_from_db(content)
 
     return jsonify({"message": "Review deleted successfully"}), 200
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

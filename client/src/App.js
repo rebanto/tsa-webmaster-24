@@ -37,12 +37,14 @@ function App() {
             <li className="nav-item">
               <Link className="nav-link text-light" to="/order">Order</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link text-light" to="/admin">Admin</Link>
+            </li>
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 More
               </Link>
               <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to="/admin">Admin</Link></li>
                 <li><Link className="dropdown-item" to="/reviews">Reviews</Link></li>
                 <li><Link className="dropdown-item" to="/sources">Sources</Link></li>
                 <li><Link className="dropdown-item" to="/references">References</Link></li>

@@ -5,7 +5,6 @@ header {
 h1 {
   font-size: 2.1rem;
   text-align: center;
-  background-color: #f4f1de !important;
   color: #186a48 !important;
   padding: 0px;
   margin-bottom: 40px;
@@ -28,7 +27,6 @@ h1 {
 
 .reviews-container {
     padding: 1rem;
-    background-color: #f4f1de;
   }
   
   .reviews-container .review {
@@ -39,11 +37,11 @@ h1 {
   }
   
 .cancel-btn {
-  background-color: #3d405b !important;
-  border-color: #3d405b !important;
-  color: #f4f1de !important;
+  background-color: #d8ccba !important;
+  border-color: #d8ccba !important;
+  color: #186a48 !important;
 }
 
 .cancel-btn:hover {
-  color: #d6d3bc !important;
+  color: #539177 !important;
 }

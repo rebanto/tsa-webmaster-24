@@ -10,7 +10,6 @@ function Order() {
     totalPrice: 0,
   });
   const [cart, setCart] = useState([]);
-  const [promoApplied, setPromoApplied] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,9 +21,6 @@ function Order() {
     let total = getTotalPrice();
     if (orderDetails.promo === "Spring25") {
       total = total - total * 0.25;
-      setPromoApplied(true);
-    } else {
-      setPromoApplied(false);
     }
     setOrderDetails((prevState) => ({
       ...prevState,
@@ -68,12 +64,12 @@ function Order() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const handleCartSubmit = (e) => {
+  const handleCartSubmit = async (e) => {
     e.preventDefault();
 
     const cartSummary = getCartSummary();
 
-    fetch("http://localhost:5000/api/orders", {
+    await fetch("http://localhost:5000/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -6,25 +6,17 @@ const AdminPage = () => {
   const [pendingReviews, setPendingReviews] = useState([]);
 
   useEffect(() => {
-    const fetchOrders = () => {
-      fetch("/api/admin/orders")
-        .then(response => response.json())
-        .then(data => {
-          setOrders(data);
-        });
-    };
+    fetch("/api/admin/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+      });
 
-    const fetchPendingReviews = () => {
-      fetch("/api/reviews")
-        .then(response => response.json())
-        .then(data => {
-          const unapprovedReviews = data.filter((review) => !review.approved);
-          setPendingReviews(unapprovedReviews);
-        });
-    };    
-
-    fetchOrders();
-    fetchPendingReviews();
+    fetch("/api/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        setPendingReviews(data.filter((review) => !review.approved));
+      });
   }, []);
 
   const groupItems = (items) => {
@@ -32,9 +24,9 @@ const AdminPage = () => {
     for (const item of items) {
       const existingItem = grouped.find((i) => i.name === item.name);
       if (existingItem) {
-        existingItem.quantity += item.quantity || 1;
+        existingItem.count += item.count;
       } else {
-        grouped.push({ ...item, quantity: item.quantity || 1 });
+        grouped.push({ ...item, count: item.count });
       }
     }
     return grouped;
@@ -47,7 +39,7 @@ const AdminPage = () => {
       email: order.email,
       items: order.items,
     };
-    const response = await fetch("http://localhost:5000/api/orders", {
+    await fetch("http://localhost:5000/api/orders", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +53,7 @@ const AdminPage = () => {
     const review = pendingReviews[index];
     const reviewContent = review.content;
 
-    const response = await fetch("http://localhost:5000/api/admin/reviews", {
+    await fetch("http://localhost:5000/api/admin/reviews", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +69,7 @@ const AdminPage = () => {
       content: review.content,
     };
 
-    const response = await fetch("http://localhost:5000/api/reviews", {
+    await fetch("http://localhost:5000/api/reviews", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
