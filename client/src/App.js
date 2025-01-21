@@ -9,6 +9,7 @@ import AdminPage from "./pages/AdminPage";
 import Reviews from "./pages/Reviews";
 import References from "./pages/References";
 import Sources from "./pages/Sources";
+import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
@@ -67,6 +68,8 @@ function App() {
           <Route path="/references" element={<References />} />
         </Routes>
       </main>
+
+      <Footer />
     </div>
   );
 }

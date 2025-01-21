@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import "./ContactPage.css";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -47,27 +48,13 @@ function Contact() {
   };
 
   return (
-    <div className="container mt-5">
-      <style>
-        {`
-          .btn {
-            background-color: #186a48;
-            color: white;
-          }
-          .btn:hover {
-          color: white;
-            background-color: #3D405B;
-          }
-        `}
-      </style>
-
-      <h2 className="text-center mb-4">Contact Us</h2>
+    <div className="mt-5">
+      <h2>Contact Us</h2>
       <div
-        className="contact-form-wrapper p-4 rounded shadow-sm"
+        className="p-4 shadow-sm"
         style={{
           background: "linear-gradient(135deg, #f4f1de, #d8f3dc)",
           maxWidth: "50%",
-          alignItems: "center",
           margin: "auto",
         }}
       >
@@ -118,7 +105,7 @@ function Contact() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="message" className="form-label">
+            <label className="form-label">
               Message:
             </label>
             <textarea
@@ -128,7 +115,7 @@ function Contact() {
               onChange={handleInputChange}
               required
               className="form-control"
-              rows="5"
+              rows="4"
             />
           </div>
 

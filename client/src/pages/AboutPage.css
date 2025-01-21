@@ -73,40 +73,18 @@ h2 {
 }
 .timeline-item {
     display: flex;
-    align-items: center;
-    gap: 20px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 10px;
     border: 3px solid #186a48 ;
-    border-radius: 15px;
     background-color: #f4f1de;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-item.left {
     flex-direction: row-reverse !important;
-}
-.timeline-item img {
-    border-radius: 10px;
-    height: 40%;
-    width: 40%;
-}
-.timeline-item .timeline-content {
-    text-align: center;
-    flex: 1;
-}
-.timeline-item h3 {
-    font-size: 1.5rem;
-    color: #3D405B;
-}
-.timeline-item p {
-    color: #3D405B;
 }
 
 .modal {
@@ -137,22 +115,6 @@ h2 {
 .modal-header {
     color: #E07A5F !important;
 }
-
-.modal-content p {
-    font-size: 1rem !important;
-    color: #3D405B !important;
-}
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #E07A5F;
-    cursor: pointer;
-}
-
 
 .sustainability {
     display: flex;
@@ -202,7 +164,7 @@ h2 {
 .meet-chefs .chef-card {
     background-color: #F4F1DE;
     border-radius: 10px;
-    padding: 20px;
+    padding: 12px;
     width: 300px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
