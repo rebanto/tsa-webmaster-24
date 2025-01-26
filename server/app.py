@@ -24,9 +24,9 @@ def add_order():
 
         response = add_order_to_db(email, items, completed, customer_name)
 
-        return jsonify({"message": "Order added successfully"}), 201
+        return jsonify({"message": "order added successfully"}), 201
     except Exception:
-        return jsonify({"message": "error", "error": str(Exception)}), 500
+        return jsonify({"message": "error", "error": 'some error happened.'}), 500
 
 
 @app.route('/api/admin/orders', methods=['GET'])

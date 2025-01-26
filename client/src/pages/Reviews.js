@@ -14,15 +14,16 @@ const Reviews = () => {
           .filter((review) => review.approved)
           .map((review) => ({
             ...review,
-            formattedDate: new Intl.DateTimeFormat("en-US", {
+            formattedDate: new Date(review.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
-            }).format(new Date(review.date)),
+            })
           }));
         setReviews(approvedReviews);
       });
   }, []);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

@@ -3,12 +3,7 @@ header {
 }
 
 h1 {
-  font-size: 2.1rem;
-  text-align: center;
   color: #186a48 !important;
-  padding: 0px;
-  margin-bottom: 40px;
-  font-weight: 600;
 }
 
 .btn-primary {
@@ -20,20 +15,12 @@ h1 {
   color:#d6d3bc !important;
 }
 
-.review-form-container h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
 .reviews-container {
     padding: 1rem;
   }
   
   .reviews-container .review {
-    margin-bottom: 1.5rem; 
     background-color: #d8ccba;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
 .cancel-btn {
