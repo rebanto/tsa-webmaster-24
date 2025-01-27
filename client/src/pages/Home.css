@@ -39,3 +39,16 @@
 .one {
   height: 500px;
 }
+
+.container1 {
+  display: flex;
+  flex-wrap: wrap;
+  height: 20vh;
+  gap: 20px
+}
+
+.section {
+  flex: 1;
+  border: 1px solid black;
+
+}

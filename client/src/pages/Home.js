@@ -1,8 +1,20 @@
 import { Button } from 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react';
+import { useSpring, animated } from "react-spring"
 import "./Home.css";
 
+function Number({ n }) {
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: n,
+    delay: 200,
+    config: { mass: 1, tension: 20, friction: 10 },
+  });
+  return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>;
+}
+
 function Home() {
+
   return (
     <div>
       <div id="carouselExample" class="carousel slide"
@@ -72,6 +84,35 @@ aria-hidden="true"></span>
           </div>
         </div>
       </div>
+      
+    <div className="container1">
+      <div className="section">
+        <h1>
+            <Number n={3} />
+        </h1>
+      <h1>Number of Michelin Stars</h1>
+      </div>
+      <div className="section">
+        <h1>
+          <Number n={10} />+
+        </h1>
+        <h1>Cuisines!</h1>
+      </div>
+      <div className="section">
+        <h1>
+          <Number n={100} />
+        </h1>
+        <h1>Health & Safety Rating</h1>
+      </div>
+      <div className="section">
+        <h1>
+          <Number n={50} />%
+        </h1>
+        <h1>Carbon Emission Reduction</h1>
+      </div>
+    </div>
+      
+
     </div>
 
 
