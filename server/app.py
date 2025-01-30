@@ -15,28 +15,23 @@ def serve():
 
 @app.route('/api/orders', methods=['POST'])
 def add_order():
-    try:
-        order_data = request.json
-        email = order_data['email']
-        items = order_data['items']
-        completed = order_data['completed', False]
-        customer_name = order_data['name']
-
-        response = add_order_to_db(email, items, completed, customer_name)
-
-        return jsonify({"message": "order added successfully"}), 201
-    except Exception:
-        return jsonify({"message": "error", "error": 'some error happened.'}), 500
+    order_data = request.json
+    email = order_data['email']
+    items = order_data['items']
+    completed = False
+    customer_name = order_data['name']
+    response = add_order_to_db(email, items, completed, customer_name)
+    
+    return jsonify({"message": "order added successfully"}), 201
 
 
 @app.route('/api/admin/orders', methods=['GET'])
 def get_all_orders():
-        response = get_all_from_table("orders")
-
-        if response.data:
-            return jsonify(response.data), 200
-        else:
-            return jsonify({"message": "No orders found"}), 404
+    response = get_all_from_table("orders")
+    if response.data:
+        return jsonify(response.data), 200
+    else:
+        return jsonify({"message": "No orders found"}), 404
 
 @app.route('/api/orders', methods=['DELETE']) # for now, this is okay. only deleting with email
 def delete_order():

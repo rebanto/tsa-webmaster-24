@@ -4,18 +4,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-4 mt-auto">
+    <footer className="bg-dark text-light p-4 mt-auto">
       <div className="container">
-        <div className="row">
-          <div className="col-md-4">
+        <div className="row align-self-center">
+          <div className="col-md">
             <h5 className="fw-bold">The Green Platter</h5>
             <p>
-              Bringing the finest plant-based meals to your table. Join us in
-              promoting sustainable and healthy living!
+            Offering a sustainable, cruelty-free dining experience in a warm and welcoming space.
             </p>
           </div>
-          <div className="col-md-4">
-            <h5 className="fw-bold">Quick Links</h5>
+          <div className="col-md">
+            <h5 className="fw-bold">Navigation</h5>
             <ul className="list-unstyled">
               <li>
                 <Link to="/" className="text-light text-decoration-none">
@@ -44,24 +43,20 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-md-4">
-            <h5 className="fw-bold">Contact Us</h5>
-            <p>
-              <i className="bi bi-geo-alt-fill"></i> 123 Green Street,
-              Plantville
-            </p>
-            <p>
-              <i className="bi bi-envelope-fill"></i> info@greenplatter.com
-            </p>
-            <p>
-              <i className="bi bi-telephone-fill"></i> +1 (555) 123-4567
-            </p>
+          <div className="col-md">
+            <h5 className="fw-bold">Follow Us</h5>
+            <a
+              href="https://www.instagram.com/the_green_platter_restaurant/?igsh=MXc5cnR4aWg4YThoaQ%3D%3D&utm_source=qr#"
+              target="_blank"
+              className="text-light">
+              <i className="fab fa-instagram fa-2x"></i>
+              </a>
           </div>
         </div>
-        <hr className="my-4" />
+        <hr className="m-4" />
         <div className="text-center">
-          <p className="mb-0">
-            &copy; 2025 The Green Platter. All rights reserved.
+          <p>
+            &copy; 2025 The Green Platter.
           </p>
         </div>
       </div>

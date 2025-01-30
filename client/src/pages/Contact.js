@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./ContactPage.css";
+import Footer from "../Footer";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ function Contact() {
   };
 
   return (
-    <div className="mt-5">
+    <div className="contact mt-5">
       <h2>Contact Us</h2>
       <div
         className="p-4 shadow-sm"

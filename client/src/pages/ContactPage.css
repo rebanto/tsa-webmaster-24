@@ -1,8 +1,12 @@
 .btn {
-    background-color: #186a48;
-    color: white;
-  }
-  .btn:hover {
+  background-color: #186a48;
   color: white;
-    background-color: #3D405B;
-  }
+}
+.btn:hover {
+  color: white;
+  background-color: #3d405b;
+}
+
+.contact {
+  height: calc(100vh - 420px);
+}

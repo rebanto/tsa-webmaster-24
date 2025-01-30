@@ -2,7 +2,7 @@ import React from "react";
 
 const Sources = () => {
   return (
-    <div className="sources-page">
+    <div className="sources-page" style={{ height: "calc(100vh - 410px)" }}>
       <h1>Sources:</h1>
       <ul>
         <li>
