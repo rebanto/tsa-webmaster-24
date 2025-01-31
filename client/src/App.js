@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
@@ -14,14 +14,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
+  const location = useLocation();
+  const showFooter = ["/", "/about", "/menu"].includes(location.pathname);
+
   return (
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light bg-e07a5f sticky-top">
-        <div className="logo d-flex align-items-center">
+      <nav className="navbar navbar-expand-lg">
+        <div className="logo">
           <img src="images/web_logo.png" alt="Logo" className="img-fluid" style={{ height: "50px" }} />
-          <span className="fs-4 fw-bold text-light">The Green Platter</span>
+          <span className="text-light">The Green Platter</span>
         </div>
-        <div className="links ms-auto">
+        <div className="links">
           <ul className="navbar-nav d-flex flex-row gap-4">
             <li className="nav-item">
               <Link className="nav-link text-light" to="/">Home</Link>
@@ -71,7 +74,7 @@ function App() {
         </Routes>
       </main>
 
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 }
