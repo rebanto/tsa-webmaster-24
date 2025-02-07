@@ -7,7 +7,7 @@ const Reviews = () => {
   const [newReview, setNewReview] = useState({ name: "", content: "" });
 
   useEffect(() => {
-    fetch("https://server-yyj7.onrender.com/api/reviews")
+    fetch("/api/reviews")
       .then((res) => res.json())
       .then((data) => {
         const approvedReviews = data
@@ -45,7 +45,7 @@ const Reviews = () => {
       approved: false,
     };
 
-    await fetch("https://server-yyj7.onrender.com/api/reviews", {
+    await fetch("/api/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewWithDate),
