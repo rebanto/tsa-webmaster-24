@@ -91,7 +91,7 @@ function Order() {
 
   return (
     <div className="order-page">
-      <h2>Order Your Meal</h2>
+      <h2>My Cart</h2>
       <div className="cart">
         {cart.length === 0 ? (
           <div className="empty-cart">

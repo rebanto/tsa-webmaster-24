@@ -39,7 +39,7 @@ function App() {
               <Link className="nav-link text-light" to="/contact">Contact</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/order">Order</Link>
+              <Link className="nav-link text-light" to="/order">My Cart</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-light" to="/admin">Admin</Link>

@@ -13,6 +13,10 @@ pending_reviews = []
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
+@app.route('/active', methods=['GET'])
+def active():
+    return jsonify({"message": "Server is active"}), 200
+
 @app.route('/api/orders', methods=['POST'])
 def add_order():
     order_data = request.json
