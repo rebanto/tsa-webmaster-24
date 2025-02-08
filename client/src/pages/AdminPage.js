@@ -6,13 +6,13 @@ const AdminPage = () => {
   const [pendingReviews, setPendingReviews] = useState([]);
 
   useEffect(() => {
-    fetch("/api/admin/orders")
+    fetch("https://server-yyj7.onrender.com/api/admin/orders")
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
       });
-  
-    fetch("/api/reviews")
+
+    fetch("https://server-yyj7.onrender.com/api/reviews")
       .then((res) => res.json())
       .then((data) => {
         setPendingReviews(data.filter((review) => !review.approved));
@@ -39,7 +39,7 @@ const AdminPage = () => {
       email: order.email,
       items: order.items,
     };
-    await fetch("/api/orders", {
+    await fetch("https://server-yyj7.onrender.com/api/orders", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const AdminPage = () => {
     const review = pendingReviews[index];
     const reviewContent = review.content;
 
-    await fetch("/api/admin/reviews", {
+    await fetch("https://server-yyj7.onrender.com/api/admin/reviews", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const AdminPage = () => {
       content: review.content,
     };
 
-    await fetch("/api/reviews", {
+    await fetch("https://server-yyj7.onrender.com/api/reviews", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

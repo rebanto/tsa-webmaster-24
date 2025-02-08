@@ -69,7 +69,7 @@ function Order() {
 
     const cartSummary = getCartSummary();
 
-    await fetch("/api/orders", {
+    await fetch("https://server-yyj7.onrender.com/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
