@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,6 +16,15 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 function App() {
   const location = useLocation();
   const showFooter = ["/", "/about", "/menu"].includes(location.pathname);
+  
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="App">
@@ -24,37 +33,41 @@ function App() {
           <img src="images/web_logo.png" alt="Logo" className="img-fluid" style={{ height: "50px" }} />
           <span className="text-light">The Green Platter</span>
         </div>
-        <div className="links">
-          <ul className="navbar-nav d-flex flex-row gap-4">
+
+        {isMobile && (
+          <button className="hamburger-menu" onClick={() => setMenuOpen(!menuOpen)}>
+            ☰
+          </button>
+        )}
+
+        <div className={`links ${isMobile ? (menuOpen ? "open" : "closed") : ""}`}>
+          <ul className="navbar-nav d-flex flex-column flex-lg-row gap-4">
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/">Home</Link>
+              <Link className="nav-link text-light" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/about">About</Link>
+              <Link className="nav-link text-light" to="/about" onClick={() => setMenuOpen(false)}>About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/menu">Menu</Link>
+              <Link className="nav-link text-light" to="/menu" onClick={() => setMenuOpen(false)}>Menu</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/contact">Contact</Link>
+              <Link className="nav-link text-light" to="/order" onClick={() => setMenuOpen(false)}>Cart</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/order">My Cart</Link>
+              <Link className="nav-link text-light" to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/admin">Admin</Link>
+              <Link className="nav-link text-light" to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/reviews">Reviews</Link>
+              <Link className="nav-link text-light" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
             </li>
-            <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                More
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to="/sources">Sources</Link></li>
-                <li><Link className="dropdown-item" to="/references">References</Link></li>
-              </ul>
+            <li className="nav-item">
+              <Link className="nav-link text-light" to="/sources" onClick={() => setMenuOpen(false)}>Sources</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-light" to="/references" onClick={() => setMenuOpen(false)}>References</Link>
             </li>
           </ul>
         </div>

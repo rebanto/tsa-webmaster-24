@@ -82,6 +82,8 @@ const AdminPage = () => {
   return (
     <div className="admin-page">
       <h1>Admin Dashboard</h1>
+      <p><strong>**Note:</strong> This page is shown to everyone as a demonstration of the capabilities of this website. In a real production environment, a key or login would be required to access this page.
+      This page only updates with the data users input and that flows through the database, no new code is added.</p>
 
       <h2>Orders</h2>
       <table>

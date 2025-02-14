@@ -18,11 +18,10 @@ html {
   flex-direction: column;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  width: 100%;
 }
 
 header {
-  background-color: #e07a5f;
-  color: #f4f1de;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 10px;
@@ -145,4 +144,27 @@ section {
 
 .dropdown-toggle {
   color: #f8f9fa !important;
+}
+
+@media (max-width: 1024px) {
+  .navbar .links {
+    background-color: #186a48;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .navbar .links.closed {
+    display: none;
+  }
+
+  .hamburger-menu {
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+  }
 }

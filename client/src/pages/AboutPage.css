@@ -165,7 +165,8 @@ h2 {
     background-color: #F4F1DE;
     border-radius: 10px;
     padding: 12px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -187,3 +188,25 @@ h2 {
     margin-bottom: 20px !important;
 }
 
+@media (max-width: 768px) {
+    .our-story .story-content {
+        flex-direction: column;
+    }
+
+    .our-story p {
+        text-align: center;
+    }
+
+    .timeline-item {
+        flex-direction: column !important;
+    }
+
+    .sustainability-content {
+        flex-direction: column;
+    }
+
+    .sustainability p {
+        text-align: center;
+        margin: 0;
+    }
+}

@@ -4,7 +4,7 @@ const References = () => {
   return (
     <div className="references-page" style={{ height: "calc(100vh - 410px)" }}>
       <h1>References:</h1>
-      <p>TSA Copyright Checklist and Work Log</p>
+      <p>TSA Copyright Checklist and Work Log (Might take a little bit to load and might need to refresh page in desktop aspect ratio).</p>
       <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
         <iframe 
           src="/pdfs/Webmaster_Copyright_Form.pdf" 

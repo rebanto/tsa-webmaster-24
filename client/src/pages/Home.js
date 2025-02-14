@@ -120,7 +120,7 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="col mb-4">
+          <div className="col mb-4 d-none d-lg-block">
             <div className="info-grid">
               <div className="info-square shadow">
                 <i className="fas fa-seedling fa-2x"></i>

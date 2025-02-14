@@ -60,7 +60,7 @@ function Menu() {
   const getTotalPrice = () => {
     let total = 0;
 
-    cart.forEach(item => {
+    cart.forEach((item) => {
       total += item.price * item.count;
     });
 
@@ -97,7 +97,10 @@ function Menu() {
                   className="menu-item-image"
                 />
                 <div className="item-info">
-                  <h4>{item.name}</h4>
+                  <div className="first-row">
+                    <h4>{item.name}</h4>
+                    <p>{item.cal} cals</p>
+                  </div>
                   <p>{item.description}</p>
                   <p className="price">${item.price}</p>
                 </div>
@@ -120,7 +123,10 @@ function Menu() {
                   className="menu-item-image"
                 />
                 <div className="item-info">
-                  <h4>{item.name}</h4>
+                  <div className="first-row">
+                    <h4>{item.name}</h4>
+                    <p>{item.cal} cals</p>
+                  </div>
                   <p>{item.description}</p>
                   <p className="price">${item.price}</p>
                 </div>
@@ -143,7 +149,10 @@ function Menu() {
                   className="menu-item-image"
                 />
                 <div className="item-info">
-                  <h4>{item.name}</h4>
+                  <div className="first-row">
+                    <h4>{item.name}</h4>
+                    <p>{item.cal} cals</p>
+                  </div>
                   <p>{item.description}</p>
                   <p className="price">${item.price}</p>
                 </div>
@@ -166,7 +175,10 @@ function Menu() {
                   className="menu-item-image"
                 />
                 <div className="item-info">
-                  <h4>{item.name}</h4>
+                  <div className="first-row">
+                    <h4>{item.name}</h4>
+                    <p>{item.cal} cals</p>
+                  </div>
                   <p>{item.description}</p>
                   <p className="price">${item.price}</p>
                 </div>
@@ -189,7 +201,10 @@ function Menu() {
                   className="menu-item-image"
                 />
                 <div className="item-info">
-                  <h4>{item.name}</h4>
+                  <div className="first-row">
+                    <h4>{item.name}</h4>
+                    <p>{item.cal} cals</p>
+                  </div>
                   <p>{item.description}</p>
                   <p className="price">${item.price}</p>
                 </div>
@@ -208,18 +223,18 @@ function Menu() {
           {getCartSummary().map((item) => (
             <li key={item.id}>
               {item.name} x {item.count} - ${item.price * item.count}
-              <button
-                className="btn btn-sm btn-success"
-                onClick={() => increaseQuantity(item.id)}
-              >
-                +
-              </button>
-              <button
-                className="btn btn-sm btn-danger"
-                onClick={() => decreaseQuantity(item.id)}
-              >
-                -
-              </button>
+                <button
+                  className="btn btn-sm btn-success"
+                  onClick={() => increaseQuantity(item.id)}
+                >
+                  +
+                </button>
+                <button
+                  className="btn btn-sm btn-danger"
+                  onClick={() => decreaseQuantity(item.id)}
+                >
+                  -
+                </button>
             </li>
           ))}
         </ul>

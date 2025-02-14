@@ -2,95 +2,150 @@
   "specialtyDrinks": [
     {
       "id": 1,
-      "name": "Cucumber Mint Lemonade",
-      "description": "Freshly Squeezed Lemonade with cucumber slices, mint leaves, etc.",
+      "name": "Golden Hour Glow",
+      "description": "A warm, sunset-hued drink with a perfect balance of sweet & zesty. **Chef’s Special**",
       "price": 3.99,
-      "image": "images/cuc_mint_lem.jpg"
+      "image": "images/golden_glow.jpg",
+      "cal": 210
     },
     {
       "id": 2,
-      "name": "Rose Cardamom Hot Chocolate",
-      "description": "Rich hot chocolate infused with rosewater and cardamom, topped with whipped cream",
+      "name": "Berry Breeze",
+      "description": "A refreshing blend of sweet hand-picked strawberries and tart lemonade.",
       "price": 3.99,
-      "image": "images/hot_chocolate.jpg"
+      "image": "images/berry_breeze.jpg",
+      "cal": 160
+    },
+    {
+      "id": 3,
+      "name": "Fiesta del Sol",
+      "description": "A bold drink blended with fresh citrus, a touch of honey, and sparkling water capturing the energy of a Mexican celebration with a zesty kick and a hint of spice.",
+      "price": 3.99,
+      "image": "images/fiesta_sol.jpg",
+      "cal": 105
     }
   ],
   "soupsSalads": [
     {
-      "id": 3,
-      "name": "Citrusy Chickpea Salad",
-      "description": "Flavorful combination of spiced chickpea, turmeric rice, roasted sweet potatoes, and coconut yogurt drizzle",
+      "id": 6,
+      "name": "Tropical Tango",
+      "description": "A refreshing blend of chickpeas and citrus fruits, offering a zesty twist to your meal.",
       "price": 10.99,
-      "image": "images/chickpea.jpg"
+      "image": "images/tropical_tango.jpg",
+      "cal": 360
     },
     {
-      "id": 4,
-      "name": "Thai Coconut Curry Soup",
-      "description": "Spicy and Creamy with coconut milk, lemongrass, tofu, mushrooms, and lime",
+      "id": 7,
+      "name": "Tuscan Garden Salad",
+      "description": "A refreshing mix of crunchy kale and cucumbers complemented with a mix of peppery arugula and sun-dried tomatoes, garnished with our home-made lemon vinaigrette.",
+      "price": 10.99,
+      "image": "images/tuscan_salad.jpg",
+      "cal": 270
+    },
+    {
+      "id": 8,
+      "name": "Golden Thai Coconut Curry Soup",
+      "description": "An aromatic balance of sweet, savory, and spicy infused with freshly creamed coconut milk and bold Thai spices. **Chef’s Special**",
       "price": 12.99,
-      "image": "images/thai.jpg"
+      "image": "images/thai_curry.jpg",
+      "cal": 510,
+      "allergens": ["Coconut", "Soy"]
     }
   ],
   "appetizers": [
     {
-      "id": 5,
-      "name": "Mac N' Cheese Bites",
-      "description": "Made with sharp cheddar and deep-fried for a crispy exterior",
+      "id": 9,
+      "name": "Sun-Kissed Bruschetta",
+      "description": "Crisp and vibrant blend of pan-seared red pepper feta and fresh tomato basil garnished with lemon zest.",
+      "price": 6.99,
+      "image": "images/bruschetta.jpg",
+      "cal": 170,
+      "allergens": ["Dairy", "Gluten"]
+    },
+    {
+      "id": 10,
+      "name": "Smokey Skewers",
+      "description": "Skewered cubes of halloumi cheese, served with a drizzle of olive oil and lemon juice.",
+      "price": 6.99,
+      "image": "images/smokeyskewers.JPG",
+      "cal": 110,
+      "allergens": ["Dairy"]
+    },
+    {
+      "id": 11,
+      "name": "Rustic Root Tostadas",
+      "description": "Crunchy tostada shells topped with smoky black beans, perfectly roasted zucchini, topped with creamy avocado.",
+      "price": 6.99,
+      "image": "images/tostadas.jpg",
+      "cal": 260,
+      "allergens": ["Gluten"]
+    },
+    {
+      "id": 12,
+      "name": "Buffalo Cauliflower Bites",
+      "description": "Perfectly crispy, golden-brown bite-sized cauliflower tossed with a homemade zesty buffalo sauce.",
       "price": 5.99,
-      "image": "images/mac.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Red Pepper Bruschetta",
-      "description": "A platter featuring roasted red pepper feta and tomato basil topped with lemon zest",
-      "price": 6.99,
-      "image": "images/bruschetta.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Asian Rice Wraps",
-      "description": "Sauteed vegetables, tofu, sesame-ginger sauce, and butter lettuce wrapped in Asian rice wrap",
-      "price": 6.99,
-      "image": "images/rice.jpg"
+      "image": "images/buffalocauliflowerbites.jpg",
+      "cal": 370,
+      "allergens": ["Gluten", "Dairy"]
     }
   ],
   "entrees": [
     {
-      "id": 9,
-      "name": "Wild Mushroom Risotto",
-      "description": "Creamy Arborio rice cooked with medley of wild mushrooms, white wine, Parmesan, and fresh thyme",
-      "price": 13.99,
-      "image": "images/mushroom.jpg"
-    },
-    {
-      "id": 10,
+      "id": 13,
       "name": "Mediterranean Street Bowl",
-      "description": "Quinoa or farro topped with roasted vegetables chickpeas tzatziki, and a drizzle of tahini dressing",
+      "description": "A colorful combination of fluffy quinoa with fresh cucumbers, tomatoes, red onions, and topped with the Green Platter’s special tzatziki sauce.",
       "price": 16.99,
-      "image": "images/med_street.jpg"
+      "image": "images/med_street.jpg",
+      "cal": 780,
+      "allergens": ["Dairy"]
     },
     {
-      "id": 11,
-      "name": "Paneer Tikka Pizza",
-      "description": "Authentic Naan Bread topped with creamy cheese sauce, paneer cubes, and tikka seasoned olive oil",
+      "id": 14,
+      "name": "Siam Serenade",
+      "description": "A vibrant, savory stir fry with tofu and vegetables in a creamy, tangy peanut sauce.",
+      "price": 13.99,
+      "image": "images/siamserenade.jpg",
+      "cal": 650,
+      "allergens": ["Peanuts", "Soy"]
+    },
+    {
+      "id": 15,
+      "name": "Sushi Verde",
+      "description": "Buttery avocado slices delicately set atop beautifully seasoned rice garnished with a hint of tangy soy sauce and spicy wasabi.",
       "price": 14.99,
-      "image": "images/paneer.jpg"
+      "image": "images/sushiverde.jpg",
+      "cal": 620,
+      "allergens": ["Soy"]
+    },
+    {
+      "id": 16,
+      "name": "Bibimbap",
+      "description": "A Korean rice bowl with sautéed mixed vegetables and a dollop of chili paste.",
+      "price": 13.99,
+      "image": "images/bibimbap.jpg",
+      "cal": 550,
+      "allergens": ["Soy"]
     }
   ],
   "desserts": [
     {
-      "id": 12,
-      "name": "Rosewater Panna Cotta w/ Pistachio Crumble",
-      "description": "Silky panna cotta infused with rosewater, topped with vibrant pistachio crumbles and pomegranate syrup",
+      "id": 17,
+      "name": "Rose Panna Cotta",
+      "description": "A silky delicacy, infused with a subtle fragrant rosewater and garnished with crunchy pistachio crumble and saffron.",
       "price": 14.99,
-      "image": "images/panna.jpg"
+      "image": "images/panna.jpg",
+      "cal": 290,
+      "allergens": ["Dairy", "Gelatin", "Pistachio"]
     },
     {
-      "id": 13,
+      "id": 18,
       "name": "Earl Grey Crème Brûlée",
-      "description": "Creamy Custard infused with earl grey tea, topped with a crisp caramelized sugar crust",
+      "description": "A luxuriously crafted creamy vegetarian custard infused with citrusy Earl Grey tea and a perfectly caramelized crust.",
       "price": 8.99,
-      "image": "images/earl.jpg"
+      "image": "images/earl.jpg",
+      "cal": 440,
+      "allergens": ["Dairy"]
     }
   ]
 }
