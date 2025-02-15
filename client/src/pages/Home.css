@@ -95,3 +95,18 @@
   background-color: rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease-in-out;
 }
+
+.awards-section {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.award-img {
+  width: 200px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.award-img:hover {
+  transform: scale(1.1);
+}

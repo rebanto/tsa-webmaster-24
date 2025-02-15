@@ -168,8 +168,31 @@ function Home() {
         </div>
       </div>
 
+            <div className="awards-section pb-3 pt-1 shadow text-center">
+        <div className="container">
+          <h2 className="mb-2">Our Awards</h2>
+          <div className="row justify-content-center">
+            <div className="col">
+              <img src="/images/award1.png" alt="Award 1" className="award-img" />
+            </div>
+            <div className="col">
+              <img src="/images/award2.png" alt="Award 2" className="award-img" />
+            </div>
+            <div className="col">
+              <img src="/images/award3.png" alt="Award 3" className="award-img" />
+            </div>
+            <div className="col">
+              <img src="/images/award4.png" alt="Award 4" className="award-img" />
+            </div>
+            <div className="col">
+              <img src="/images/award5.png" alt="Award 5" className="award-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
-        className="Popular Items section"
+        className="popular-items"
         style={{ marginTop: "5rem", marginBottom: "5rem" }}
       >
         <h2 class="text-center">Chef's Specials</h2>
