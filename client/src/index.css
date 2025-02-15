@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Trovical Calm';
+  src: local('Trovical Calm'), url(./fonts/trovical_calm_free_regular.otf) format('truetype');
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -19,6 +24,10 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
   width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  cursor: default !important;
 }
 
 header {
@@ -85,14 +94,19 @@ section {
   align-items: center   !important;
 }
 
+.navbar Link span {
+  text-decoration: none !important;
+}
+
 .navbar .logo img {
   height: 50px !important;
   margin-right: 10px  !important;
 }
 
 .navbar .logo span {
-  font-size: 1.2rem !important;
-  font-weight: bold  !important;
+  font-family: 'Trovical Calm', sans-serif;;
+  font-size: 2rem !important;
+  color: #3d405b;
 }
 
 .navbar .links {

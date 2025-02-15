@@ -83,6 +83,7 @@ const About = () => {
 
       <section className="our-approach">
         <h2>Our Approach</h2>
+        <p>Click on each step to learn more!</p>
         <div className="timeline-container">
           <div>
             <div
@@ -228,9 +229,9 @@ const About = () => {
               src="/images/chef1.jpg"
               alt="Chef A"
             />
-            <h3>Chef A</h3>
+            <h3>Head Chef</h3>
             <p>
-              Head chef with 15+ years of experience in plant-based cuisines.
+              15+ years of experience in plant-based cuisines.
             </p>
           </div>
 
@@ -240,9 +241,9 @@ const About = () => {
               alt="Chef B"
               class="img-fluid rounded mb-2"
             />
-            <h3>Chef B</h3>
+            <h3>Sous chef</h3>
             <p>
-              Sous chef with extroardinary expertise in innovative presentation.
+              Extroardinary expertise in innovative presentation.
             </p>
           </div>
 
@@ -251,8 +252,8 @@ const About = () => {
               src="/images/chef3.jpg"
               alt="Chef C"
             />
-            <h3>Chef C</h3>
-            <p>Pastry chef passionate about sustainability and pastries.</p>
+            <h3>Pastry chef</h3>
+            <p>Passionate about sustainability and pastries.</p>
           </div>
 
           <div class="chef-card">
@@ -260,8 +261,8 @@ const About = () => {
               src="/images/chef4.jpg"
               alt="Chef D"
             />
-            <h3>Chef D</h3>
-            <p>Saucier bringing innovative flavors to sauces and dressings.</p>
+            <h3>Saucier</h3>
+            <p>Bringing innovative flavors to sauces and dressings.</p>
           </div>
 
           <div class="chef-card">
@@ -269,8 +270,8 @@ const About = () => {
               src="/images/chef5.jpg"
               alt="Chef E"
             />
-            <h3>Chef E</h3>
-            <p>Garde manger with expertise in blending cold dishes.</p>
+            <h3>Garde manger</h3>
+            <p>Expertise in blending cold dishes.</p>
           </div>
         </div>
       </section>

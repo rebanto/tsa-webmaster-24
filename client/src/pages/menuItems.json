@@ -134,7 +134,7 @@
       "name": "Rose Panna Cotta",
       "description": "A silky delicacy, infused with a subtle fragrant rosewater and garnished with crunchy pistachio crumble and saffron.",
       "price": 14.99,
-      "image": "images/panna.jpg",
+      "image": "images/panna.png",
       "cal": 290,
       "allergens": ["Dairy", "Gelatin", "Pistachio"]
     },

@@ -85,6 +85,14 @@ const AdminPage = () => {
       <p><strong>**Note:</strong> This page is shown to everyone as a demonstration of the capabilities of this website. In a real production environment, a key or login would be required to access this page.
       This page only updates with the data users input and that flows through the database, no new code is added.</p>
 
+      <p><strong>How to Use:</strong></p>
+       <p> 
+        Add items to the cart from the Menu page. Then, finish the order in Cart. The order will appear in the Orders table below. You can mark the order as completed by checking the checkbox.
+      </p>
+      <p>
+        To add a review, go to the Reviews page and submit a review. The review will appear in the Pending Reviews table below. You can approve or delete the review from this page.
+      </p>
+
       <h2>Orders</h2>
       <table>
         <thead>

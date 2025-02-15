@@ -34,11 +34,11 @@ function Home() {
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img
-              src="/images/PreparationEnd.jpg"
-            />
+            <img src="/images/PreparationEnd.jpg" />
             <div className="carousel-caption">
-              <h1 className="display-4">Welcome to The Green Platter</h1>
+              <h1 className="display-4 carousel-title">
+                Welcome to The Green Platter
+              </h1>
               <p className="lead">
                 Plant-Based Perfection, Crafted with Love ❤️
               </p>
@@ -48,11 +48,9 @@ function Home() {
             </div>
           </div>
           <div className="carousel-item">
-            <img
-              src="/images/Preparation.jpg"
-            />
+            <img src="/images/Preparation.jpg" />
             <div className="carousel-caption">
-              <h1 className="display-4">Savor Delights</h1>
+              <h1 className="display-4 carousel-title">Savor Delights</h1>
               <p className="lead">
                 Indulge in fresh, locally sourced, and delicious vegan cuisine
                 that nourishes the body and soul.
@@ -63,11 +61,9 @@ function Home() {
             </div>
           </div>
           <div className="carousel-item">
-            <img
-              src="/images/home_sustainability.jpg"
-            />
+            <img src="/images/home_sustainability.jpg" />
             <div className="carousel-caption">
-              <h1 className="display-4">Environmental Eats</h1>
+              <h1 className="display-4 carousel-title">Environmental Eats</h1>
               <p className="lead">
                 We carefully source and prepare our meals to minimize our carbon
                 footprint and be as eco-friendly as possible. 🌿
@@ -148,18 +144,18 @@ function Home() {
           <div className="row">
             <div className="col">
               <h1>
-                <AnimatedNumber n={2} />
+                <AnimatedNumber n={750} />
               </h1>
-              <p>Michelin Stars</p>
+              <p>Reduced Carbon Emissions</p>
             </div>
             <div className="col">
               <h1>
-                <AnimatedNumber n={3} />+
+                <AnimatedNumber n={25} />+
               </h1>
-              <p>Michelin Green Stars</p>
+              <p>Years in Operation</p>
             </div>
             <div className="col">
-              <h1>A</h1>
+              <h1>100</h1>
               <p>Health & Safety Grade</p>
             </div>
             <div className="col">
@@ -172,7 +168,72 @@ function Home() {
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: "5rem", marginBottom: "5rem" }}>
+      <div
+        className="Popular Items section"
+        style={{ marginTop: "5rem", marginBottom: "5rem" }}
+      >
+        <h2 class="text-center">Chef's Specials</h2>
+        <div class="row">
+          <div class="col-lg">
+            <div class="card" style={{marginBottom: "2rem"}}>
+              <img
+                src="/images/golden_glow.jpg"
+                class="card-img-top"
+                alt="..."
+              ></img>
+              <div class="card-body">
+                <h5 class="card-title">Golden Hour Glow</h5>
+                <p class="card-text">
+                  A warm, sunset-hued drink with a perfect balance of sweet &
+                  zesty.
+                </p>
+                <a href="/menu" class="btn btn-primary">
+                  Check out our menu
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card"  style={{marginBottom: "2rem"}}>
+              <img src="/images/earl.jpg" class="card-img-top" alt="..."></img>
+              <div class="card-body">
+                <h5 class="card-title">Earl Grey Crème Brûlée</h5>
+                <p class="card-text">
+                  A luxuriously crafted creamy vegetarian custard infused with
+                  citrusy Earl Grey tea and a perfectly caramelized crust.
+                </p>
+                <a href="/menu" class="btn btn-primary">
+                  Check out our menu
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card">
+              <img
+                src="/images/thai_curry.jpg"
+                class="card-img-top"
+                alt="..."
+              ></img>
+              <div class="card-body">
+                <h5 class="card-title">Golden Thai Coconut Curry Soup</h5>
+                <p class="card-text">
+                  An aromatic balance of sweet, savory, and spicy infused with
+                  freshly creamed coconut milk and bold Thai spices.
+                </p>
+                <a href="/menu" class="btn btn-primary">
+                  Check out our menu
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="container"
+        style={{ marginTop: "5rem", marginBottom: "5rem" }}
+      >
         <h2 className="text-center mb-4">Frequently Asked Questions</h2>
         <div className="accordion">
           <div className="accordion-item">
@@ -186,13 +247,12 @@ function Home() {
                 How does The Green Platter ensure sustainability?
               </button>
             </h2>
-            <div
-              id="faqCollapseOne"
-              className="accordion-collapse collapse"
-            >
+            <div id="faqCollapseOne" className="accordion-collapse collapse">
               <div className="accordion-body show">
                 We are committed to sustainability in all aspects of our
-                business. We source local ingredients, and plan out minimal carbon footprint preparations for our meals. In additiona, we use eco-friendly packagin and implement effective recycling.
+                business. We source local ingredients, and plan out minimal
+                carbon footprint preparations for our meals. In additional, we
+                use eco-friendly packaging and implement effective recycling.
               </div>
             </div>
           </div>
@@ -208,12 +268,11 @@ function Home() {
                 How can I order?
               </button>
             </h2>
-            <div
-              id="faqCollapseTwo"
-              className="accordion-collapse collapse"
-            >
+            <div id="faqCollapseTwo" className="accordion-collapse collapse">
               <div className="accordion-body">
-                You can place a order by navigating to the menu page of our website. After adding your items, navigate to the order page and proceed with checkout.
+                You can place a order by navigating to the menu page of our
+                website. After adding your items, navigate to the order page and
+                proceed with checkout.
               </div>
             </div>
           </div>
@@ -229,12 +288,10 @@ function Home() {
                 Are all of the meals in The Green Platter vegetarian?
               </button>
             </h2>
-            <div
-              id="faqCollapseThree"
-              className="accordion-collapse collapse"
-            >
+            <div id="faqCollapseThree" className="accordion-collapse collapse">
               <div className="accordion-body">
-                Yes, all of the meals at The Green Platter are vegetarian. We do not use any meat or animal products in our dishes.
+                Yes, all of the meals at The Green Platter are vegetarian. We do
+                not use any meat or animal products in our dishes.
               </div>
             </div>
           </div>
