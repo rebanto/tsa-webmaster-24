@@ -384,6 +384,16 @@ const References = () => {
           Font Awesome - used for icons in Home Page
         </a>
       </h4>
+
+      <h4>
+        <a
+          href="https://fontawesome.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Canva and Adobe- used to design logo
+        </a>
+      </h4>
     </div>
   );
 };
