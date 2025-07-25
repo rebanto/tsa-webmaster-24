@@ -1,4 +1,7 @@
 <h1>TSA Webmaster Website 2024</h1>
+A website featuring a vegetarian restaurant, built for the 2025 Georgia TSA State Leadership Conference. 
+
+---
 <h2>Prerequisites</h2>
 <ul>
     <li>Install <strong>Node.js</strong> (React front-end).</li>
